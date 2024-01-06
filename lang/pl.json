@@ -1,0 +1,22 @@
+{
+  "ELECTRICEMBRACE.AbilityStr": "Strength",
+  "ELECTRICEMBRACE.AbilityCon": "Constitution",
+  "ELECTRICEMBRACE.AbilityDex": "Dexterity",
+  "ELECTRICEMBRACE.AbilityInt": "Intelligence",
+  "ELECTRICEMBRACE.AbilityWis": "Wisdom",
+  "ELECTRICEMBRACE.AbilityCha": "Charisma",
+
+  "ELECTRICEMBRACE.AbilityStrAbbr": "str",
+  "ELECTRICEMBRACE.AbilityConAbbr": "con",
+  "ELECTRICEMBRACE.AbilityDexAbbr": "dex",
+  "ELECTRICEMBRACE.AbilityIntAbbr": "int",
+  "ELECTRICEMBRACE.AbilityWisAbbr": "wis",
+  "ELECTRICEMBRACE.AbilityChaAbbr": "cha",
+
+  "ELECTRICEMBRACE.EffectCreate": "Create Effect",
+  "ELECTRICEMBRACE.EffectToggle": "Toggle Effect",
+  "ELECTRICEMBRACE.EffectEdit": "Edit Effect",
+  "ELECTRICEMBRACE.EffectDelete": "Delete Effect",
+
+  "ELECTRICEMBRACE.Add": "Add"
+}
