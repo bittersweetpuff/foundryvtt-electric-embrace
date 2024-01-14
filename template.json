@@ -259,13 +259,298 @@
           "smr": {
             "value": 1
           }
+        }
       },
-    },
-    "valuables": {
-      "currency": 0
+      "valuables": {
+        "currency": 0
+      }
     }
   },
   "Item":{
-
+    "types": [
+      "apparel",
+      "battlehack",
+      "bond",
+      "cybernetic",
+      "consumable",
+      "miscellany",
+      "skill",
+      "talent",
+      "weapon"
+    ],
+    "apparel": {
+      "apparelType": "",
+      "armorType": "",
+      "damaged": "",
+      "location": {
+        "armL": false,
+        "armR": false,
+        "head": false,
+        "legL": false,
+        "legR": false,
+        "torso": true
+      },
+      "resistance": {
+        "energy": 0,
+        "overload": 0,
+        "physical": 0
+      },
+      "special": "",
+      "templates": [
+        "base",
+        "physical",
+        "equipable"
+      ]
+    },
+    "battlehack":{
+      "difficulty": "0",
+      "templates": [
+        "base",
+        "physical",
+        "equipable"
+      ]
+    },
+    "bond": {
+      "charName": "",
+      "bondType": ""
+    },
+    "cybernetic": {
+      "location": "",
+      "ram": 0,
+      "capacity": 0,
+      "resistance": {
+        "energy": 0,
+        "overload": 0,
+        "physical": 0
+      },
+      "templates": [
+        "activable",
+        "base",
+        "implantable",
+        "physical"
+      ]
+    },
+    "consumable": {
+      "group": "",
+      "consumableType": "stim",
+      "duration": "instant",
+      "effects": "",
+      "hp": 0,
+      "templates": [
+        "base",
+        "physical"
+      ]
+    },
+    "miscellany": {
+      "effect": "",
+      "templates": [
+        "base",
+        "physical"
+      ]
+    },
+    "skill": {
+      "defaultAttribute": "bod",
+      "summary": "",
+      "tag": false,
+      "templates": [
+        "base"
+      ],
+      "value": 0
+    },
+    "talent": {
+      "rank": {
+        "levelIncrease": 0,
+        "levelStart": 1,
+        "max": 1,
+        "value": 0
+      },
+      "requirements": "",
+      "templates": [
+        "base"
+      ]
+    },
+    "templates": {
+      "activable": {
+        "activable": true,
+        "ramCost": 0,
+        "active": false
+      },
+      "base": {
+        "description": "",
+        "favorite": false,
+        "source": ""
+      },
+      "equippable": {
+        "equippable": true,
+        "equipped": false
+      },
+      "implantable": {
+        "implantable": true,
+        "implanted": false
+      },
+      "physical": {
+        "cost": 0,
+        "quantity": 1,
+        "rarity": 0,
+        "stashed": false,
+        "weight": 0
+      }
+    },
+    "weapon": {
+      "attribute": "",
+      "condition": "",
+      "damage": {
+        "damageEffect":{
+          "burst": {
+            "hasRanks": false,
+            "rank": -1,
+            "value": false
+          },
+          "breaking": {
+            "hasRanks": false,
+            "rank": -1,
+            "value": false
+          },
+          "persistent": {
+            "hasRanks": false,
+            "rank": -1,
+            "value": false
+          },
+          "piercing": {
+            "hasRanks": true,
+            "rank": 1,
+            "value": false
+          },
+          "overload": {
+            "hasRanks": true,
+            "rank": 1,
+            "value": false
+          },
+          "spread": {
+            "hasRanks": false,
+            "rank": -1,
+            "value": false
+          },
+          "stun": {
+            "hasRanks": false,
+            "rank": -1,
+            "value": false
+          },
+          "vicious": {
+            "hasRanks": false,
+            "rank": -1,
+            "value": false
+          }
+        },
+        "damageType": {
+          "energy": false,
+          "overload": false,
+          "physical": false
+        },
+        "rating": 0,
+        "weaponQuality": {
+          "accurate": {
+            "description": "",
+            "label": "Accurate",
+            "value": false
+          },
+          "blast": {
+            "description": "",
+            "label": "Blast",
+            "value": false
+          },
+          "closeQuarters": {
+            "description": "",
+            "label": "Close Quarters",
+            "value": false
+          },
+          "concealed": {
+            "description": "",
+            "label": "Concealed",
+            "value": false
+          },
+          "debilitating": {
+            "description": "",
+            "label": "Debilitating",
+            "value": false
+          },
+          "inaccurate": {
+            "description": "",
+            "label": "Inaccurate",
+            "value": false
+          },
+          "mine": {
+            "description": "",
+            "label": "Mine",
+            "value": false
+          },
+          "nightVision": {
+            "description": "",
+            "label": "Night Vision",
+            "value": false
+          },
+          "parry": {
+            "description": "",
+            "label": "Parry",
+            "value": false
+          },
+          "recon": {
+            "description": "",
+            "label": "Recong",
+            "value": false
+          },
+          "reliable": {
+            "description": "",
+            "label": "Reliable",
+            "value": false
+          },
+          "suppressed": {
+            "description": "",
+            "label": "Suppressed",
+            "value": false
+          },
+          "thrown": {
+            "description": "",
+            "label": "Thrown",
+            "value": false
+          },
+          "twoHanded": {
+            "description": "",
+            "label": "Two-Handed",
+            "value": false
+          },
+          "heavy": {
+            "description": "",
+            "label": "Heavy",
+            "value": false
+          },
+          "light": {
+            "description": "",
+            "label": "Light",
+            "value": false
+          },
+          "homing": {
+            "description": "",
+            "label": "Homing",
+            "value": false
+          },
+          "unreliable": {
+            "description": "",
+            "label": "Unreliable",
+            "value": false
+          }
+        }
+      },
+      "melee": false,
+      "range": "",
+      "skill": "",
+      "tear": "",
+      "templates": [
+        "base",
+        "physical",
+        "equipable"
+      ],
+      "weaponType": ""
+    }     
   }
 }
