@@ -14,9 +14,11 @@ import { ELECTRICEMBRACE } from "./helpers/config.mjs";
 
 Hooks.once('init', async function() {
 
+  console.log('Electric Embrace | Initializing Electric Embrace 2d20 module');
+
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
-  game.electric-embrace = {
+  game.electricembrace = {
     ElectricEmbraceActor,
     ElectricEmbraceItem,
     rollItemMacro
@@ -30,8 +32,8 @@ Hooks.once('init', async function() {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "1d20 + @abilities.dex.mod",
-    decimals: 2
+    formula: "@initiative.value",
+    decimals: 0
   };
 
   // Define custom Document classes
@@ -40,9 +42,9 @@ Hooks.once('init', async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("electric-embrace", ElectricEmbraceActorSheet, { makeDefault: true });
+  Actors.registerSheet("electricembrace", ElectricEmbraceActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("electric-embrace", ElectricEmbraceItemSheet, { makeDefault: true });
+  Items.registerSheet("electricembrace", ElectricEmbraceItemSheet, { makeDefault: true });
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
@@ -97,7 +99,7 @@ async function createItemMacro(data, slot) {
   const item = await Item.fromDropData(data);
 
   // Create the macro command using the uuid.
-  const command = `game.electric-embrace.rollItemMacro("${data.uuid}");`;
+  const command = `game.electricembrace.rollItemMacro("${data.uuid}");`;
   let macro = game.macros.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
@@ -105,7 +107,7 @@ async function createItemMacro(data, slot) {
       type: "script",
       img: item.img,
       command: command,
-      flags: { "electric-embrace.itemMacro": true }
+      flags: { "electricembrace.itemMacro": true }
     });
   }
   game.user.assignHotbarMacro(macro, slot);

@@ -7,7 +7,7 @@ export class ElectricEmbraceItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["electric-embrace", "sheet", "item"],
+      classes: ["electricembrace", "sheet", "item"],
       width: 520,
       height: 480,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
@@ -16,7 +16,7 @@ export class ElectricEmbraceItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/electric-embrace/templates/item";
+    const path = "systems/electricembrace/templates/item";
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.html`;
 

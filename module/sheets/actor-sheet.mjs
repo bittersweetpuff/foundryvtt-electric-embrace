@@ -9,8 +9,8 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["electric-embrace", "sheet", "actor"],
-      template: "systems/electric-embrace/templates/actor/actor-sheet.html",
+      classes: ["electricembrace", "sheet", "actor"],
+      template: "systems/electricembrace/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
@@ -19,7 +19,7 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/electric-embrace/templates/actor/actor-${this.actor.type}-sheet.html`;
+    return `systems/electricembrace/templates/actor/actor-${this.actor.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
