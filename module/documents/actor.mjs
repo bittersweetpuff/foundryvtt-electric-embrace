@@ -36,34 +36,33 @@ export class ElectricEmbraceActor extends Actor {
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     this._prepareCharacterData(actorData);
-    this._prepareNpcData(actorData);
+    this._prepareDroneData(actorData);
   }
 
   /**
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    if (actorData.type !== 'character') return;
+    if (actorData.type !== 'character' && actorData.type !== 'npc') return;
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
+    
+    this._caluclateDefense();
+    this._calculateMaxHP();
+    this._calculateInitiative();
+    this._calculateMeleeDamage();
 
-    // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(systemData.abilities)) {
-      // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
-    }
   }
 
   /**
    * Prepare NPC type specific data.
    */
-  _prepareNpcData(actorData) {
-    if (actorData.type !== 'npc') return;
+  _prepareDroneData(actorData) {
+    if (actorData.type !== 'drone') return;
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
-    systemData.xp = (systemData.cr * systemData.cr) * 100;
   }
 
   /**
@@ -74,7 +73,7 @@ export class ElectricEmbraceActor extends Actor {
 
     // Prepare character roll data.
     this._getCharacterRollData(data);
-    this._getNpcRollData(data);
+    this._getDroneRollData(data);
 
     return data;
   }
@@ -83,29 +82,68 @@ export class ElectricEmbraceActor extends Actor {
    * Prepare character roll data.
    */
   _getCharacterRollData(data) {
-    if (this.type !== 'character') return;
+    if (this.type !== 'character' && this.type !== 'npc') return;
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.mod + 4`.
-    if (data.abilities) {
-      for (let [k, v] of Object.entries(data.abilities)) {
+    if (data.attributes) {
+      for (let [k, v] of Object.entries(data.attributes)) {
         data[k] = foundry.utils.deepClone(v);
       }
     }
 
     // Add level for easier access, or fall back to 0.
-    if (data.attributes.level) {
-      data.lvl = data.attributes.level.value ?? 0;
+    if (data.level) {
+      data.lvl = data.level.value ?? 0;
     }
   }
 
   /**
    * Prepare NPC roll data.
    */
-  _getNpcRollData(data) {
-    if (this.type !== 'npc') return;
+  _getDroneRollData(data) {
+    if (this.type !== 'drone') return;
 
     // Process additional NPC data here.
   }
+
+  _caluclateDefense() {
+    const defense = this.system.attributes.agi.value < 8 ? 1 : 2;
+
+    this.system.defense.value = defense + this.system.defense.bonus;
+  }
+
+  _calculateInitiative() {
+    this.system.initiative.value = this.system.attributes.per.value + this.system.attributes.agi.value + this.system.initiative.bonus;
+  }
+
+  _calculateMaxHP() {
+    const currentLevel = parseInt(this.system.level.value);
+  
+    this.system.health.max = this.system.attributes.bod.value + this.system.attributes.res.value + currentLevel - 1 + this.system.health.bonus;
+    this.system.health.value = Math.min(
+      this.system.health.value,
+      this.system.health.max
+    );
+  }
+
+  _calculateMeleeDamage() {
+    const body = this.system.attributes.bod.value;
+
+    let meleeDamage = 0;
+
+    if (body <= 7 && body >= 6) {
+      meleeDamage = 1;
+    }
+    else if (body <= 9 && body >= 8) {
+      meleeDamage = 2;
+    }
+    else if (body >= 10) {
+      meleeDamage = 3;
+    }
+
+    this.system.meleeDamage.value = meleeDamage + this.system.meleeDamage.bonus;
+  }
+
 
 }
