@@ -1,10 +1,10 @@
 {
-  "ELECTRICEMBRACE.AbilityStr": "Strength",
-  "ELECTRICEMBRACE.AbilityCon": "Constitution",
-  "ELECTRICEMBRACE.AbilityDex": "Dexterity",
-  "ELECTRICEMBRACE.AbilityInt": "Intelligence",
-  "ELECTRICEMBRACE.AbilityWis": "Wisdom",
-  "ELECTRICEMBRACE.AbilityCha": "Charisma",
+  "ELECTRICEMBRACE.AttributeBod": "Body",
+  "ELECTRICEMBRACE.AttributeAgi": "Agility",
+  "ELECTRICEMBRACE.AttributePer": "Perception",
+  "ELECTRICEMBRACE.AttributeInt": "Inteligence",
+  "ELECTRICEMBRACE.AttributeRes": "Resolve",
+  "ELECTRICEMBRACE.AttributeSmr": "Smarts",
 
   "ELECTRICEMBRACE.AbilityStrAbbr": "str",
   "ELECTRICEMBRACE.AbilityConAbbr": "con",

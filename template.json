@@ -242,21 +242,33 @@
       "stats": {
         "attributes": {
           "bod": {
+            "base": 1,
+            "bonus": 0,
             "value": 1
           },
           "agi": {
+            "base": 1,
+            "bonus": 0,
             "value": 1
           },
           "per": {
+            "base": 1,
+            "bonus": 0,
             "value": 1
           },
           "int": {
+            "base": 1,
+            "bonus": 0,
             "value": 1
           },
           "res": {
+            "base": 1,
+            "bonus": 0,
             "value": 1
           },
           "smr": {
+            "base": 1,
+            "bonus": 0,
             "value": 1
           }
         }

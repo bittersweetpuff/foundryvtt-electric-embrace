@@ -68,8 +68,8 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
    */
   _prepareCharacterData(context) {
     // Handle ability scores.
-    for (let [k, v] of Object.entries(context.system.abilities)) {
-      v.label = game.i18n.localize(CONFIG.ELECTRICEMBRACE.abilities[k]) ?? k;
+    for (let [k, v] of Object.entries(context.system.attributes)) {
+      v.label = game.i18n.localize(CONFIG.ELECTRICEMBRACE.attributes[k]) ?? k;
     }
   }
 
