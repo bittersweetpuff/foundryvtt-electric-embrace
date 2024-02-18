@@ -82,44 +82,70 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
    */
   _prepareItems(context) {
     // Initialize containers.
-    const gear = [];
-    const features = [];
-    const spells = {
-      0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: []
+    const apparel = [];
+    const battlehacks = [];
+    const cybernetics = {
+      "skin": [],
+      "os": [],
+      "bodykit": [],
+      "skeleton": [],
+      "arms": [],
+      "nervous": [],
+      "head": [],
+      "drill": [],
+      "heart": [],
+      "legs": [],
+      "other": []
     };
-
+    const consumables = [];
+    const skills = [];
+    const talents = [];
+    const weapons = [];
     // Iterate through items, allocating to containers
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
-      // Append to gear.
-      if (i.type === 'item') {
-        gear.push(i);
+      // Append to apparel.
+      if (i.type === 'apparel') {
+        apparel.push(i);
       }
-      // Append to features.
-      else if (i.type === 'feature') {
-        features.push(i);
+      // Append to battlehacks.
+      else if (i.type === 'battlehack') {
+        battlehacks.push(i);
       }
-      // Append to spells.
-      else if (i.type === 'spell') {
-        if (i.system.spellLevel != undefined) {
-          spells[i.system.spellLevel].push(i);
+      // Append to cybernetics.
+      else if (i.type === 'cybernetic') {
+        if (i.system.location != "") {
+          cybernetics[i.system.location].push(i);
+        }
+        else {
+          cybernetics["other"].push(i);
         }
       }
+      // consumables
+      else if (i.type === 'consumable') {
+        consumables.push(i);
+      }
+      // skills
+      else if (i.type === 'skill') {
+        skills.push(i);
+      }
+      // talents
+      else if (i.type === 'talent') {
+        talents.push(i);
+      }
+      // weapons
+      else if (i.type === 'weapon') {
+        weapons.push(i);
+      }
     }
-
     // Assign and return
-    context.gear = gear;
-    context.features = features;
-    context.spells = spells;
+    context.apparel = apparel;
+    context.battlehacks = battlehacks;
+    context.cybernetics = cybernetics;
+    context.consumables = consumables;
+    context.skills = skills;
+    context.talents = talents;
+    context.weapons = weapons;
   }
 
   /* -------------------------------------------- */

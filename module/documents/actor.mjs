@@ -114,13 +114,13 @@ export class ElectricEmbraceActor extends Actor {
   }
 
   _calculateInitiative() {
-    this.system.initiative.value = this.system.attributes.per.value + this.system.attributes.agi.value + this.system.initiative.bonus;
+    this.system.initiative.value = this.system.attributes.per.base + this.system.attributes.agi.base + this.system.initiative.bonus;
   }
 
   _calculateMaxHP() {
     const currentLevel = parseInt(this.system.level.value);
   
-    this.system.health.max = this.system.attributes.bod.value + this.system.attributes.res.value + currentLevel - 1 + this.system.health.bonus;
+    this.system.health.max = this.system.attributes.bod.base + this.system.attributes.res.base + currentLevel - 1 + this.system.health.bonus;
     this.system.health.value = Math.min(
       this.system.health.value,
       this.system.health.max
