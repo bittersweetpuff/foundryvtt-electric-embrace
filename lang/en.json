@@ -1,4 +1,7 @@
 {
+
+  "ELECTRICEMBRACE.Attributes": "Attributes",
+  "ELECTRICEMBRACE.Description": "Description",
   "ELECTRICEMBRACE.AttributeBod": "Body",
   "ELECTRICEMBRACE.AttributeAgi": "Agility",
   "ELECTRICEMBRACE.AttributePer": "Perception",

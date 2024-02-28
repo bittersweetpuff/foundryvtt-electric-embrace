@@ -7,11 +7,10 @@
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
     </div>
   </header>
-
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="description">{{localize "ELECTRICEMBRACE.Description"}}</a>
+    <a class="item" data-tab="attributes">{{localize "ELECTRICEMBRACE.Attributes"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -24,7 +23,30 @@
 
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
-      {{!-- As you add new fields, add them in here! --}}
+      <div class="flexrow">
+				<label>{{localize "FALLOUT.TEMPLATES.Skill_Value"}}</label>
+				<input type="number" name="system.value" value="{{system.value}}">
+			</div>
+
+      <div class="flexrow">
+				<label>{{localize "FALLOUT.TEMPLATES.Skill_Tag"}}</label>
+				<input
+					type="checkbox"
+					name="system.tag"
+					{{#ifCond system.tag '==' true}}checked{{/ifCond}}
+				>
+			</div>
+      
+      <div class="flexrow">
+				<label>{{system.defaultAttribute}}</label>
+				<select name="system.defaultAttribute">
+					{{selectOptions ELECTRICEMBRACE.attributes
+						selected=system.defaultAttribute
+						sort=true
+					}}
+				</select>
+			</div>
+
     </div>
   </section>
 </form>
