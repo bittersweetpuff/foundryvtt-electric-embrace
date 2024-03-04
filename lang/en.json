@@ -21,5 +21,8 @@
   "ELECTRICEMBRACE.EffectEdit": "Edit Effect",
   "ELECTRICEMBRACE.EffectDelete": "Delete Effect",
 
-  "ELECTRICEMBRACE.Add": "Add"
+  "ELECTRICEMBRACE.Add": "Add",
+  "ELECTRICEMBRACE.TEMPLATES.SkillValue": "Rank",
+  "ELECTRICEMBRACE.TEMPLATES.SkillTag": "Specialization",
+  "ELECTRICEMBRACE.TEMPLATES.DefaultAttribute": "Default Attribute"
 }

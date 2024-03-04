@@ -24,12 +24,12 @@
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       <div class="flexrow">
-				<label>{{localize "FALLOUT.TEMPLATES.Skill_Value"}}</label>
+				<label>{{localize "ELECTRICEMBRACE.TEMPLATES.SkillValue"}}</label>
 				<input type="number" name="system.value" value="{{system.value}}">
 			</div>
 
       <div class="flexrow">
-				<label>{{localize "FALLOUT.TEMPLATES.Skill_Tag"}}</label>
+				<label>{{localize "ELECTRICEMBRACE.TEMPLATES.SkillTag"}}</label>
 				<input
 					type="checkbox"
 					name="system.tag"
@@ -38,11 +38,12 @@
 			</div>
       
       <div class="flexrow">
-				<label>{{system.defaultAttribute}}</label>
+				<label>{{localize "ELECTRICEMBRACE.TEMPLATES.DefaultAttribute"}}</label>
 				<select name="system.defaultAttribute">
 					{{selectOptions ELECTRICEMBRACE.attributes
 						selected=system.defaultAttribute
 						sort=true
+            localize=true
 					}}
 				</select>
 			</div>
