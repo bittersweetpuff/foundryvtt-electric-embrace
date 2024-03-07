@@ -46,7 +46,7 @@ import { roll2d20 } from "./roller/roller2d20.mjs";
     Actors.registerSheet("electricembrace", ElectricEmbraceActorSheet, { makeDefault: true });
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("electricembrace", ElectricEmbraceItemSheet, { makeDefault: true });
-
+    loadTemplates(['systems/electricembrace/templates/chat-cards/2d20-chat-card.html']);
     // Preload Handlebars templates.
       return preloadHandlebarsTemplates();
   });
@@ -85,6 +85,32 @@ Hooks.on('chatMessage', (log, message, data) => {
   myDialog.render(true);
 
   const result = roll2d20(rollOptions);
+  
+  const chatData = {
+    ...rollOptions,
+    ...result,
+  };
+
+  renderTemplate('systems/electricembrace/templates/chat-cards/2d20-chat-card.html', chatData).then(
+    (html) => {
+      const messageData = {
+        user: game.user_id,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+        content: html,
+      };
+
+      console.log(html);
+
+      const rollMode = game.settings.get('core', 'rollMode');
+      ChatMessage.applyRollMode(messageData, rollMode);
+
+      //CONFIG.ChatMessage.entityClass.create(messageData);
+      ChatMessage.create(messageData).then(msg => {
+        return msg;
+      });
+    }
+  );
+
   console.log(result);
   return false;
 
