@@ -7,6 +7,7 @@ import { ElectricEmbraceItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
   import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { ELECTRICEMBRACE } from "./helpers/config.mjs";
+import { roll2d20 } from "./roller/roller2d20.mjs";
 
 /* -------------------------------------------- */
   /*  Init Hook                                   */
@@ -83,7 +84,8 @@ Hooks.on('chatMessage', (log, message, data) => {
   });
   myDialog.render(true);
 
-  console.log(rollOptions);
+  const result = roll2d20(rollOptions);
+  console.log(result);
   return false;
 
 });
