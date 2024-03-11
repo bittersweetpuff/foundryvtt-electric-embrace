@@ -8,6 +8,7 @@ import { ElectricEmbraceItemSheet } from "./sheets/item-sheet.mjs";
   import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { ELECTRICEMBRACE } from "./helpers/config.mjs";
 import { roll2d20 } from "./roller/roller2d20.mjs";
+import { EffectDie } from "./custom-die/EffectDie.mjs";
 
 /* -------------------------------------------- */
   /*  Init Hook                                   */
@@ -16,6 +17,9 @@ import { roll2d20 } from "./roller/roller2d20.mjs";
   Hooks.once('init', async function() {
 
     console.log('Electric Embrace | Initializing Electric Embrace 2d20 module');
+
+    CONFIG.Dice.types.push(EffectDie);
+    CONFIG.Dice.terms.e = EffectDie;
 
     // Add utility classes to the global game object so that they're more easily
     // accessible in global contexts.
