@@ -10,6 +10,7 @@
     "systems/electricembrace/templates/actor/parts/actor-features.html",
     "systems/electricembrace/templates/actor/parts/actor-items.html",
     "systems/electricembrace/templates/actor/parts/actor-spells.html",
-    "systems/electricembrace/templates/actor/parts/actor-effects.html",
+    "systems/electricembrace/templates/actor/parts/actor-effects.html", 
+    "systems/electricembrace/templates/actor/parts/actor-skills.html",
   ]);
 };
