@@ -4,16 +4,18 @@
     <div class="item-skill-ranks">Ranks</div>
     <div class="item-skill-tag">Specialization</div>
   </li>
-  {{#each skills as |skill id|}}
-    <li class="item skill flexrow" data-item-id="{{skill._id}}">
+  {{#each skills as |item id|}}
+    <li class="item skill flexrow" data-item-id="{{item._id}}">
       <div class="item-name">
-        <h4><a class="rollable" data-roll-type="item">{{skill.name}}</a></h4>
+        <h4><a class="rollable" data-roll-type="item">{{item.name}}</a></h4>
       </div>
       <div class="item-skill-value">
-				<input type="number" name="skill.system.value" value="{{skill.system.value}}">
+				<input type="number" name="value" value="{{item.system.value}}">
 			</div>
       <div class="item-skill-tag">
-				<input type="checkbox" name="system.tag" {{#ifCond system.skill.tag '==' true}}checked{{/ifCond}} >
+				<input type="checkbox" name="tag" {{#ifCond item.system.tag '==' true}}checked{{/ifCond}} >
+        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
       </div>
     </li>
   {{/each}}

@@ -9,6 +9,8 @@ import { ElectricEmbraceItemSheet } from "./sheets/item-sheet.mjs";
 import { ELECTRICEMBRACE } from "./helpers/config.mjs";
 import { roll2d20 } from "./roller/roller2d20.mjs";
 import { EffectDie } from "./custom-die/EffectDie.mjs";
+import { Dialog2d20 } from "./roller/dialog2d20.mjs";
+
 
 /* -------------------------------------------- */
   /*  Init Hook                                   */
@@ -26,7 +28,8 @@ import { EffectDie } from "./custom-die/EffectDie.mjs";
       game.electricembrace = {
         ElectricEmbraceActor,
         ElectricEmbraceItem,
-        rollItemMacro
+        rollItemMacro,
+        Dialog2d20,
       };
 
     // Add custom constants for configuration.

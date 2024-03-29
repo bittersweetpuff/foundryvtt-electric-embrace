@@ -11,8 +11,8 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["electricembrace", "sheet", "actor"],
       template: "systems/electricembrace/templates/actor/actor-sheet.html",
-      width: 600,
-      height: 600,
+      width: 720,
+      height: 700,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
     });
   }
@@ -164,6 +164,29 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
+    
+
+    // Click Skill Item
+		html.find(".skill .item-name").click(ev => {
+			const li = $(ev.currentTarget).parents(".item");
+			const item = this.actor.items.get(li.data("itemId"));
+      console.log("rolling skill");
+			this._onRollSkill(
+				item.name,
+				item.system.value,
+				this.actor.system.attributes[item.system.defaultAttribute].value,
+				item.system.tag
+			);
+		});
+
+    //EE Change tag of skill if selected
+    html.find(".skill .item-skill-tag").click(async ev => {
+			const li = $(ev.currentTarget).parents(".item");
+			const item = this.actor.items.get(li.data("itemId"));
+			let updatedItem = { _id: item.id, system: { tag: !item.system.tag } };
+			await this.actor.updateEmbeddedDocuments("Item", [updatedItem]);
+      console.log(item.system.tag);
+		});
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
@@ -251,5 +274,15 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
       return roll;
     }
   }
+
+  _onRollSkill(skillName, rank, attribute, tag) {
+		game.electricembrace.Dialog2d20.createDialog({
+      rollName: skillName,
+			diceNum: 2,
+			attribute: attribute,
+			skill: rank,
+			tag: tag
+    });
+	}
 
 }
