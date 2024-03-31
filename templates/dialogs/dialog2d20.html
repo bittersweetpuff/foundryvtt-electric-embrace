@@ -1,20 +1,28 @@
 <div class="electricembrace-dialog">
-	<div class="flexrow ">
-		<div class="resource flexrow flex-group-left">
-			<p class="title-label">{{localize "ELECTRICEMBRACE.TEMPLATES.Attribute"}}</p>
-			<input type="number" name="attribute" value="{{attribute}}">
-		</div>
-		<div class="resource flexrow flex-group-left tile">
-			<p class="title-label">{{localize "ELECTRICEMBRACE.TEMPLATES.SkillValue"}}</p>
-			<input type="number" name="skill" value="{{skill}}">
-		</div>
-		<div class="resource flexrow flex-group-left green">
-			<p class="title-label">{{localize "ELECTRICEMBRACE.TEMPLATES.SkillTag"}}</p>
-			<input type="checkbox" name="tag" {{#ifCond tag '==' true}}checked{{/ifCond}}>
-		</div>
-		<div class="resource flexrow flex-group-left red">
-			<p class="title-label">{{localize "ELECTRICEMBRACE.TEMPLATES.Compl"}}</p>
-			<input type="number" name="complication" value="{{complication}}">
-		</div>
-	</div>
+  <div class="flexrow">
+    <p class="title-label">{{localize "ELECTRICEMBRACE.TEMPLATES.Attribute"}}</p>
+    <input type="number" name="attribute" value="{{attribute}}">
+  </div>
+  <div class="flexrow">
+    <p class="title-label">{{localize "ELECTRICEMBRACE.TEMPLATES.SkillValue"}}</p>
+    <input type="number" name="skill" value="{{skill}}">
+  </div>
+  <div class="flexrow">
+    <p class="title-label">{{localize "ELECTRICEMBRACE.TEMPLATES.SkillTag"}}</p>
+    <input type="checkbox" name="tag" {{#ifCond tag '==' true}}checked{{/ifCond}}>
+  </div>
+  <div class="flexrow">
+    <p class="title-label">{{localize "ELECTRICEMBRACE.TEMPLATES.Compl"}}</p>
+    <input type="number" name="complication" value="{{complication}}">
+  </div>
+  <div class="flexrow">
+    <label>{{localize "ELECTRICEMBRACE.TEMPLATES.Dicepool"}}</label>
+    <select name="bonus dice">
+      <option value = "-1">1</option>
+      <option value = "0" selected>2</option>
+      <option value = "1">3</option>
+      <option value = "2">4</option>
+      <option value = "3">5</option>
+    </select>
+  </div>
 </div>

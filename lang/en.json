@@ -26,5 +26,6 @@
   "ELECTRICEMBRACE.TEMPLATES.SkillTag": "Specialization",
   "ELECTRICEMBRACE.TEMPLATES.DefaultAttribute": "Default Attribute",
   "ELECTRICEMBRACE.TEMPLATES.Attribute": "Attribute",
-  "ELECTRICEMBRACE.TEMPLATES.Compl": "Complications"
+  "ELECTRICEMBRACE.TEMPLATES.Compl": "Complications",
+  "ELECTRICEMBRACE.TEMPLATES.Dicepool": "No of Dice"
 }
