@@ -65,7 +65,6 @@ Hooks.on('chatMessage', (log, message, data) => {
   if (!is2d20)
     return true;
 
-  console.log("LIFE IS GOOD!");
   const [
     command,
     targetNumber,

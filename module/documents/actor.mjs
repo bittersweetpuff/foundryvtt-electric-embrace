@@ -52,6 +52,7 @@ export class ElectricEmbraceActor extends Actor {
     this._calculateMaxHP();
     this._calculateInitiative();
     this._calculateMeleeDamage();
+    this._calculateAttributeValues();
 
   }
 
@@ -143,7 +144,26 @@ export class ElectricEmbraceActor extends Actor {
     }
 
     this.system.meleeDamage.value = meleeDamage + this.system.meleeDamage.bonus;
-  }
+  };
 
+
+  _calculateCapacity() {
+    const currentCap = parseInt(this.system.capacity.value);
+    this.system.capacity.max = this.system.capacity.bonus;
+    this.system.capacity.value = Math.min(
+      this.system.capacity.value,
+      this.system.capacity.max
+    );
+  };
+
+  _calculateAttributeValues(){
+
+    delete this.system.attributes.level;
+    for (const attribute in this.system.attributes)
+      {
+          console.log(this.system.level.value);
+          this.system.attributes[attribute].value = this.system.attributes[attribute].base + this.system.attributes[attribute].bonus;
+      }
+    } 
 
 }
