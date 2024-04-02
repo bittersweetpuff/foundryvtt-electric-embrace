@@ -11,8 +11,8 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["electricembrace", "sheet", "actor"],
       template: "systems/electricembrace/templates/actor/actor-sheet.html",
-      width: 720,
-      height: 700,
+      width: 1050,
+      height: 770,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
     });
   }
@@ -177,6 +177,15 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
 				this.actor.system.attributes[item.system.defaultAttribute].value,
 				item.system.tag
 			);
+		});
+
+    //EE Change rank of skill
+    html.find(".skill .item-skill-value input").change(async ev => {
+			let newRank = parseInt($(ev.currentTarget).val());
+			const li = $(ev.currentTarget).parents(".item");
+			const item = this.actor.items.get(li.data("itemId"));
+			let updatedItem = { _id: item.id, system: { value: newRank } };
+			await this.actor.updateEmbeddedDocuments("Item", [updatedItem]);
 		});
 
     //EE Change tag of skill if selected

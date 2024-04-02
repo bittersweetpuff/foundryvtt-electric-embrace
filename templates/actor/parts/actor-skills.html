@@ -7,7 +7,7 @@
   {{#each skills as |item id|}}
     <li class="item skill flexrow" data-item-id="{{item._id}}">
       <div class="item-name">
-        <h4><a data-roll-type="item">{{item.name}}</a></h4>
+        <h4><a data-roll-type="item">{{item.name}} [{{item.system.defaultAttribute}}]</a></h4>
       </div>
       <div class="item-skill-value">
 				<input type="number" name="value" value="{{item.system.value}}">

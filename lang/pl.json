@@ -1,13 +1,13 @@
 {
 
-  "ELECTRICEMBRACE.Attributes": "Atrubuty",
-
-  "ELECTRICEMBRACE.AbilityStr": "Strength",
-  "ELECTRICEMBRACE.AbilityCon": "Constitution",
-  "ELECTRICEMBRACE.AbilityDex": "Dexterity",
-  "ELECTRICEMBRACE.AbilityInt": "Intelligence",
-  "ELECTRICEMBRACE.AbilityWis": "Wisdom",
-  "ELECTRICEMBRACE.AbilityCha": "Charisma",
+  "ELECTRICEMBRACE.Attributes": "Atrybuty",
+  "ELECTRICEMBRACE.Description": "Opis",
+  "ELECTRICEMBRACE.AttributeBod": "Krzepa",
+  "ELECTRICEMBRACE.AttributeAgi": "Zręczność",
+  "ELECTRICEMBRACE.AttributePer": "Percepcja",
+  "ELECTRICEMBRACE.AttributeInt": "Inteligencja",
+  "ELECTRICEMBRACE.AttributeRes": "Opanowanie",
+  "ELECTRICEMBRACE.AttributeSmr": "Spryt",
 
   "ELECTRICEMBRACE.AbilityStrAbbr": "str",
   "ELECTRICEMBRACE.AbilityConAbbr": "con",
@@ -21,5 +21,11 @@
   "ELECTRICEMBRACE.EffectEdit": "Edit Effect",
   "ELECTRICEMBRACE.EffectDelete": "Delete Effect",
 
-  "ELECTRICEMBRACE.Add": "Add"
+  "ELECTRICEMBRACE.Add": "Dodaj",
+  "ELECTRICEMBRACE.TEMPLATES.SkillValue": "Ranga",
+  "ELECTRICEMBRACE.TEMPLATES.SkillTag": "Specjalizacja",
+  "ELECTRICEMBRACE.TEMPLATES.DefaultAttribute": "Domyślny atrybut",
+  "ELECTRICEMBRACE.TEMPLATES.Attribute": "Atrybut",
+  "ELECTRICEMBRACE.TEMPLATES.Compl": "Komplikacja",
+  "ELECTRICEMBRACE.TEMPLATES.Dicepool": "Liczba kości"
 }

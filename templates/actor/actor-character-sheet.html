@@ -73,9 +73,9 @@
             {{#each system.attributes as |attribute key|}}
             <div class="ability flexrow flex-group-center">
               <label for="system.attributes.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@attributes.{{key}}.value" data-label="{{attribute.label}}">{{attribute.label}}</label>
-              <input type="text" name="system.attributes.{{key}}.base" value="{{attribute.base}}" data-dtype="Number"/>
-              <span class="ability-mod" data-label="{{attribute.bonus}}">{{numberFormat attribute.bonus decimals=0 sign=true}}</span>
-              <input type="text" name="system.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
+              <input class = "flexlarge" type="text" name="system.attributes.{{key}}.base" value="{{attribute.base}}" data-dtype="Number"/>
+              <input class = "flexlarge" type="text" name="system.attributes.{{key}}.bonus" value="{{attribute.bonus}}" data-dtype="Number"/>
+              <span class="ability-mod flexlarge" data-label="{{attribute.value}}">{{attribute.value}}</span>
             </div>
             {{/each}}
           </div>
