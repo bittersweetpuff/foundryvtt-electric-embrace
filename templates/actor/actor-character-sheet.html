@@ -23,6 +23,11 @@
         </div>
 
         <div class="resource flex-group-center">
+          <span>   </span>
+        </div>
+
+
+        <div class="resource flex-group-center">
           <label for="system.power.value" class="resource-label">Capacity</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="system.capacity.value" value="{{system.capacity.value}}" data-dtype="Number"/>
@@ -30,6 +35,26 @@
             <input type="text" name="system.capacity.bonus" value="{{system.capacity.bonus}}" data-dtype="Number"/>
           </div>
         </div>
+
+      </div>
+
+      {{!-- 2nd row --}}
+
+      <div class="resources grid grid-3col">
+        <div class="resource flex-group-center">
+          <label for="system.valuables.currency" class="resource-label">Money</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.valuables.currency" value="{{system.valuables.currency}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.smartsPoints" class="resource-label">Smart Points</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.smartsPoints" value="{{system.smartsPoints}}" data-dtype="Number"/>
+          </div>
+        </div>
+
 
         <div class="resource flex-group-center">
           <label for="system.level.value" class="resource-label">Level</label>

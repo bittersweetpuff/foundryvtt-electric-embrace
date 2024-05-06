@@ -7,10 +7,10 @@ import { ElectricEmbraceItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
   import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { ELECTRICEMBRACE } from "./helpers/config.mjs";
-import { roll2d20 } from "./roller/roller2d20.mjs";
 import { EffectDie } from "./custom-die/EffectDie.mjs";
 import { Dialog2d20 } from "./roller/dialog2d20.mjs";
-
+import { diceSoNiceReadyHook } from "../hooks/diceSoNiceReadyHook.mjs";
+import { Roller2d20 } from "./roller/roller2d20.mjs";
 
 /* -------------------------------------------- */
   /*  Init Hook                                   */
@@ -30,6 +30,7 @@ import { Dialog2d20 } from "./roller/dialog2d20.mjs";
         ElectricEmbraceItem,
         rollItemMacro,
         Dialog2d20,
+        Roller2d20
       };
 
     // Add custom constants for configuration.
@@ -90,7 +91,7 @@ Hooks.on('chatMessage', (log, message, data) => {
   });
   myDialog.render(true);
 
-  const result = roll2d20(rollOptions);
+  const result = game.electricembrace.Roller2d20.roll2d20(rollOptions);
   
   const chatData = {
     ...rollOptions,
@@ -121,6 +122,8 @@ Hooks.on('chatMessage', (log, message, data) => {
   return false;
 
 });
+
+Hooks.once("diceSoNiceReady", diceSoNiceReadyHook);
 
 /* -------------------------------------------- */
   /*  Handlebars Helpers                          */

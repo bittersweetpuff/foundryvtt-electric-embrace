@@ -1,5 +1,3 @@
-import { roll2d20 } from "./roller2d20.mjs";
-
 export class Dialog2d20 extends Dialog {
   constructor(
     rollName,
@@ -61,8 +59,8 @@ export class Dialog2d20 extends Dialog {
       complicationRange: parseInt(complicationRange) || 1,
     };
 
-    const result = roll2d20(rollOptions);
-
+    const result = game.electricembrace.Roller2d20.roll2d20(rollOptions);
+    console.log("Roll results are like that: ", result);
     const chatData = {
       ...rollOptions,
       ...result,

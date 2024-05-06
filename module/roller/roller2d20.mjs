@@ -1,53 +1,54 @@
-export function roll2d20({
-  targetNumber,
-  extraDice = 0,
-  difficulty = 1,
-  doubleRange = 1,
-  complicationRange = 1
-}){
-  console.log("Attributes: ", targetNumber, extraDice, difficulty, doubleRange, complicationRange);
-  const totalDice = 2+extraDice;
-  const roll = new Die({faces: 20, number: totalDice});
-  roll.evaluate();
+export class Roller2d20{
 
-  const results = roll.results.map((die) => {
-    return parseInt(die.result);
-  });
+  static roll2d20({
+    targetNumber,
+    extraDice = 0,
+    difficulty = 1,
+    doubleRange = 1,
+    complicationRange = 1
+  }){
+    console.log("Attributes: ", targetNumber, extraDice, difficulty, doubleRange, complicationRange);
+    const totalDice = 2+extraDice;
+    const roll = new Die({faces: 20, number: totalDice});
+    roll.evaluate();
 
-  //count successes
-  const successes = results.reduce((total, result) => {
-    if (result <= targetNumber) total++;
+    const results = roll.results.map((die) => {
+      return parseInt(die.result);
+    });
 
-    if (result <= doubleRange) total++;
+    //count successes
+    const successes = results.reduce((total, result) => {
+      if (result <= targetNumber) total++;
 
-    return total;
-  }, 0);
+      if (result <= doubleRange) total++;
 
-  console.log("Results ", results);
-  console.log("Total successes ", successes);
+      return total;
+    }, 0);
 
-  //Determine complication range
-  const minComplicationValue = 21 - complicationRange;
+    console.log("Results ", results);
+    console.log("Total successes ", successes);
 
-  const complications = results.reduce((total, result) => {
-    if (result >= minComplicationValue) total++;
-    return total;
-  }, 0);
+    //Determine complication range
+    const minComplicationValue = 21 - complicationRange;
 
-  console.log("Complications ", complications);
+    const complications = results.reduce((total, result) => {
+      if (result >= minComplicationValue) total++;
+      return total;
+    }, 0);
 
-  const succeeded = successes >= difficulty;
+    console.log("Complications ", complications);
 
-  const advantage = Math.max(successes - difficulty, 0);
+    const succeeded = successes >= difficulty;
 
-
-  return {
-    results,
-    successes,
-    complications,
-    succeeded,
-    advantage,
-  };
+    const advantage = Math.max(successes - difficulty, 0);
 
 
+    return {
+      results,
+      successes,
+      complications,
+      succeeded,
+      advantage,
+    };
+  }
 }
