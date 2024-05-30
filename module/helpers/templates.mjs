@@ -12,5 +12,6 @@
     "systems/electricembrace/templates/actor/parts/actor-spells.html",
     "systems/electricembrace/templates/actor/parts/actor-effects.html", 
     "systems/electricembrace/templates/actor/parts/actor-skills.html",
+    "systems/electricembrace/templates/actor/parts/actor-talents.html",
   ]);
 };
