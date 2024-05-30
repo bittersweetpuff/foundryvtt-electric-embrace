@@ -6,11 +6,14 @@ import { ElectricEmbraceItem } from "./documents/item.mjs";
 import { ElectricEmbraceItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
   import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
-import { ELECTRICEMBRACE } from "./helpers/config.mjs";
+import { ELECTRICEMBRACE, SYSTEM_ID } from "./helpers/config.mjs";
 import { EffectDie } from "./custom-die/EffectDie.mjs";
 import { Dialog2d20 } from "./roller/dialog2d20.mjs";
 import { diceSoNiceReadyHook } from "../hooks/diceSoNiceReadyHook.mjs";
 import { Roller2d20 } from "./roller/roller2d20.mjs";
+
+import { MomentumTracker } from "../apps/MomentumTracker.mjs";
+import registerSettings from "./helpers/settings.mjs";
 
 /* -------------------------------------------- */
   /*  Init Hook                                   */
@@ -23,18 +26,23 @@ import { Roller2d20 } from "./roller/roller2d20.mjs";
     CONFIG.Dice.types.push(EffectDie);
     CONFIG.Dice.terms.e = EffectDie;
 
+    // Add custom constants for configuration.
+    CONFIG.ELECTRICEMBRACE = ELECTRICEMBRACE;
+
+    globalThis.SYSTEM_ID = SYSTEM_ID;
+
     // Add utility classes to the global game object so that they're more easily
     // accessible in global contexts.
       game.electricembrace = {
         ElectricEmbraceActor,
         ElectricEmbraceItem,
+        MomentumTracker,
         rollItemMacro,
         Dialog2d20,
         Roller2d20
       };
 
-    // Add custom constants for configuration.
-      CONFIG.ELECTRICEMBRACE = ELECTRICEMBRACE;
+
 
     /**
       * Set an initiative formula for the system
@@ -44,6 +52,8 @@ import { Roller2d20 } from "./roller/roller2d20.mjs";
         formula: "@initiative.value",
         decimals: 0
       };
+
+    registerSettings();
 
     // Define custom Document classes
     CONFIG.Actor.documentClass = ElectricEmbraceActor;
@@ -188,13 +198,42 @@ Handlebars.registerHelper("math", function(
   }[operator];
 });
 
+Handlebars.registerHelper("fromConfig", function(arg1, arg2) {
+  return CONFIG.ELECTRICEMBRACE[arg1][arg2] ? CONFIG.ELECTRICEMBRACE[arg1][arg2] : arg2;
+});
+
+// * Use with #if
+// {{#if (or
+// (eq section1 "foo")
+// (ne section2 "bar"))}}e
+// .. content
+// {{/if}}
+Handlebars.registerHelper({
+	eq: (v1, v2) => v1 === v2,
+	ne: (v1, v2) => v1 !== v2,
+	lt: (v1, v2) => v1 < v2,
+	gt: (v1, v2) => v1 > v2,
+	lte: (v1, v2) => v1 <= v2,
+	gte: (v1, v2) => v1 >= v2,
+	and() {
+		return Array.prototype.every.call(arguments, Boolean);
+	},
+	or() {
+		return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
+	},
+});
+
 /* -------------------------------------------- */
   /*  Ready Hook                                  */
   /* -------------------------------------------- */
 
   Hooks.once("ready", async function() {
+    console.log("Running ready hook");
     // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
     Hooks.on("hotbarDrop", (bar, data, slot) => createItemMacro(data, slot));
+
+    //game.electricembrace.MomentumTracker.initialise();
+
   });
 
 /* -------------------------------------------- */

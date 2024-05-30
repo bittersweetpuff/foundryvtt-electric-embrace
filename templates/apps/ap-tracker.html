@@ -1,0 +1,43 @@
+<div class="electricembrace ap-tracker">
+    {{#if (eq showGMMomentumToPlayers true)}}
+    <div class="ap-resource gm" data-type="gmAP">
+        <div class="flexcol">
+            <h4>{{localize "ELECTRICEMBRACE.TEMPLATES.GMMOMENTUM"}}</h4>
+        </div>
+        <div class="flexrow align-mid">
+            <a class="ap-btn {{#if (eq isGM true)}}ap-sub{{/if}}">-</a>
+            <input type="number" class="ap-input num-short-3" value={{gmAP}}>
+            <a class="ap-btn {{#if (eq isGM true)}}ap-add{{/if}}">+</a>
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if (eq maxAppShowToPlayers true)}}
+    <div class="ap-resource maxAP-box" data-type="maxAP">
+        <div class="flexcol">
+            <h4>{{localize "ELECTRICEMBRACE.TEMPLATES.MAX_PARTY_MOMENTUM"}}</h4>
+        </div>
+        <div class="flexrow align-mid">
+            <a class="ap-btn ap-sub">-</a>
+            <input type="number" class="ap-input num-short-3" value="{{maxAP}}">
+            <a class="ap-btn ap-add">+</a>
+        </div>
+    </div>
+    {{/if}}
+
+    <div class="ap-resource party" data-type="partyAP">
+        {{#if (eq maxAppShowToPlayers true)}}
+        <a class='toggle-maxAp'><i class="fas fa-cog"></i></a>
+        {{/if}}
+        <div class="flexcol">
+            <h4>{{localize "ELECTRICEMBRACE.TEMPLATES.PARTY_MOMENTUM"}}</h4>
+        </div>"}}</h4>
+        </div>
+        <div class="flexrow align-mid">
+            <a class="ap-btn ap-sub">-</a>
+            <input type="number" class="ap-input num-short-3" value="{{partyAP}}">
+            <a class="ap-btn ap-add">+</a>
+        </div>
+    </div>
+
+</div>

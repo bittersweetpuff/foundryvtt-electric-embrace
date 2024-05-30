@@ -1,3 +1,4 @@
+export const SYSTEM_ID = "electricembrace";
 export const ELECTRICEMBRACE = {};
 
 /**
@@ -13,4 +14,4 @@ export const ELECTRICEMBRACE = {};
    "smr": "ELECTRICEMBRACE.AttributeSmr",
 };
 
- ELECTRICEMBRACE.word = "DAMNBOI";
+

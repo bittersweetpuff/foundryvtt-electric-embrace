@@ -204,8 +204,12 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
-      item.delete();
-      li.slideUp(200, () => this.render(false));
+      if (game.settings.get("electricembrace", "editSheetMode") === true) {
+        item.delete();
+        li.slideUp(200, () => this.render(false));
+    } else {
+        ui.notifications.warn("Item deletion is not allowed in this mode.");
+    }
     });
 
     // Active Effect management
