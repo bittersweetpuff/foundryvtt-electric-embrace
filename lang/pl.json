@@ -27,5 +27,10 @@
   "ELECTRICEMBRACE.TEMPLATES.DefaultAttribute": "Domyślny atrybut",
   "ELECTRICEMBRACE.TEMPLATES.Attribute": "Atrybut",
   "ELECTRICEMBRACE.TEMPLATES.Compl": "Komplikacja",
-  "ELECTRICEMBRACE.TEMPLATES.Dicepool": "Liczba kości"
+  "ELECTRICEMBRACE.TEMPLATES.Dicepool": "Liczba kości",
+  "ELECTRICEMBRACE.TEMPLATES.Ranks_current_maximum": "Ranga",
+  "ELECTRICEMBRACE.TEMPLATES.Requirements": "Wymagania",
+  "ELECTRICEMBRACE.TEMPLATES.levelStart": "Minimalny poziom",
+  "ELECTRICEMBRACE.TEMPLATES.levelIncrease": "Wrost poziomu na rangę"
+  
 }

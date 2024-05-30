@@ -1,0 +1,47 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+      <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+      <div class="header-fields">
+        <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+      </div>
+    </header>
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+      <a class="item" data-tab="attributes">{{localize "ELECTRICEMBRACE.Attributes"}}</a>
+      <a class="item" data-tab="description">{{localize "ELECTRICEMBRACE.Description"}}</a>
+    </nav>
+
+    <section class="sheet-body"> 
+        {{!-- Attributes Tab --}}
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+          <div class="flexrow resource-row align-mid">
+            <label class="resource-label">{{localize "ELECTRICEMBRACE.TEMPLATES.Ranks_current_maximum"}}</label>
+            <span class="flexrow align-mid">
+              <!-- <label class="text-center">current:</label> -->
+              <input class="text-center num-short-3" type="number" name="system.rank.value" value="{{system.rank.value}}">
+              <label class="text-center">&nbsp &nbsp &nbsp &nbsp &nbsp /</label>
+              <!-- <label class="text-center">max:</label> -->
+              <input class="text-center num-short-3" type="number" name="system.rank.max" value="{{system.rank.max}}">
+            </span>
+          </div>
+          <div class="flexrow resource-row align-mid">
+            <label class="resource-label">{{localize "ELECTRICEMBRACE.TEMPLATES.Requirements"}}</label>
+            <input type="text" name="system.requirements" value="{{system.requirements}}">
+          </div>
+          {{!-- Minimal level --}}
+          <div class="flexrow resource-row align-mid">
+            <label class="resource-label">{{localize "ELECTRICEMBRACE.TEMPLATES.levelStart"}}</label>
+            <input class="text-center num-short-3" type="number" name="system.levelStart" value="{{system.levelStart}}">
+          </div>
+          {{!-- Level growth --}}
+          <div class="flexrow resource-row align-mid">
+            <label class="resource-label">{{localize "ELECTRICEMBRACE.TEMPLATES.levelIncrease"}}</label>
+            <input class="text-center num-short-3" type="number" name="system.levelIncrease" value="{{system.levelIncrease}}">
+          </div>
+        </div>
+        {{!-- Description Tab --}}
+        <div class="tab description" data-group="primary" data-tab="description">
+            {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

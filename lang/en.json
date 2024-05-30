@@ -27,5 +27,11 @@
   "ELECTRICEMBRACE.TEMPLATES.DefaultAttribute": "Default Attribute",
   "ELECTRICEMBRACE.TEMPLATES.Attribute": "Attribute",
   "ELECTRICEMBRACE.TEMPLATES.Compl": "Complications",
-  "ELECTRICEMBRACE.TEMPLATES.Dicepool": "No of Dice"
+  "ELECTRICEMBRACE.TEMPLATES.Dicepool": "No of Dice",
+  "ELECTRICEMBRACE.TEMPLATES.Ranks_current_maximum": "Rank",
+  "ELECTRICEMBRACE.TEMPLATES.Requirements": "Requirements",
+  "ELECTRICEMBRACE.TEMPLATES.levelStart": "Minimal level",
+  "ELECTRICEMBRACE.TEMPLATES.levelIncrease": "Level increase per rank"
+  
+  
 }
