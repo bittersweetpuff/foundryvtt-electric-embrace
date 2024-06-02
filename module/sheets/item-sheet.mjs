@@ -33,7 +33,7 @@ export class ElectricEmbraceItemSheet extends ItemSheet {
     const context = super.getData();
 
     // Use a safe clone of the item data for further operations.
-    const itemData = context.item;
+    const item = context.item;
 
     // Retrieve the roll data for TinyMCE editors.
     context.rollData = {};
@@ -43,10 +43,54 @@ export class ElectricEmbraceItemSheet extends ItemSheet {
     }
 
     // Add the actor's data to context.data for easier access, as well as flags.
-    context.system = itemData.system;
-    context.flags = itemData.flags;
+    context.system = item.system;
+    context.flags = item.flags;
     context.ELECTRICEMBRACE = CONFIG.ELECTRICEMBRACE;
 
+
+    if (item.type === "weapon")
+      {
+
+        // DAMAGE TYPE
+        context.damageTypes = [];
+        for (const key in CONFIG.ELECTRICEMBRACE.DAMAGE_TYPES) {
+          context.damageTypes.push({
+            active: item.system?.damage?.damageType[key] ?? false,
+            key,
+            label: CONFIG.ELECTRICEMBRACE.DAMAGE_TYPES[key],
+          });
+        }
+        const weaponQualities = [];
+        for (const key in CONFIG.ELECTRICEMBRACE.WEAPON_QUALITIES) {
+          weaponQualities.push({
+             active: item.system?.damage?.weaponQuality[key].value ?? false,
+             hasRank: CONFIG.ELECTRICEMBRACE.WEAPON_QUALITY_HAS_RANK[key],
+             rank: item.system?.damage?.weaponQuality[key].rank,
+             key,
+             label: CONFIG.ELECTRICEMBRACE.WEAPON_QUALITIES[key],
+          });
+        }
+
+        context.weaponQualities = weaponQualities.sort(
+          (a, b) => a.label.localeCompare(b.label)
+        );
+
+        const damageEffects = [];
+        for (const key in CONFIG.ELECTRICEMBRACE.DAMAGE_EFFECTS) {
+          damageEffects.push({
+            active: item.system?.damage?.damageEffect[key].value ?? false,
+            hasRank: CONFIG.ELECTRICEMBRACE.DAMAGE_EFFECT_HAS_RANK[key],
+            rank: item.system?.damage?.damageEffect[key].rank,
+            key,
+            label: CONFIG.ELECTRICEMBRACE.DAMAGE_EFFECTS[key],
+          });
+        }
+
+        context.damageEffects = damageEffects.sort(
+          (a, b) => a.label.localeCompare(b.label)
+        );
+
+      }
     return context;
   }
 

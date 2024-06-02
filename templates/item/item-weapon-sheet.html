@@ -1,0 +1,175 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+      <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+      <div class="header-fields">
+        <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+      </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+	<nav class="sheet-tabs tabs" data-group="primary">
+		<a class="item" data-tab="attributes">
+			{{localize "ELECTRICEMBRACE.TEMPLATES.Attributes"}}
+		</a>
+		<a class="item" data-tab="description">
+			{{localize "ELECTRICEMBRACE.TEMPLATES.Description"}}
+		</a>
+	</nav>
+
+    {{!-- Sheet Body --}}
+	<section class="sheet-body">
+        {{!-- Description Tab --}}
+		<div class="tab description" data-group="primary" data-tab="description">
+			{{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+		</div>
+
+        {{!-- Attributes Tab --}}
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+            
+            {{!-- Weapon Type --}}
+            <div class="flexrow resource-row bgOdd">
+				<label class="resource-label">
+					{{localize "ELECTRICEMBRACE.TEMPLATES.Weapon_Type"}}
+				</label>
+				<select name="system.weaponType">
+					{{selectOptions ELECTRICEMBRACE.WEAPON_TYPES
+						selected=system.weaponType
+                        sort=true
+                        localize=true
+					}}
+				</select>
+			</div>
+
+            {{!-- Damage Dice --}}
+            <div class="resource-row flexrow bgEven">
+				<label class="resource-label" for="system.damage.rating">
+					{{localize "ELECTRICEMBRACE.TEMPLATES.DAMAGE"}}
+				</label>
+				<input
+					type="number"
+					name="system.damage.rating"
+					value="{{system.damage.rating}}"
+				>
+			</div>
+
+			{{!-- Damage Types --}}
+			<div class="flexrow resource-row bgOdd">
+				<label class="resource-label" for="system.damage.damageType">
+					{{localize "ELECTRICEMBRACE.TEMPLATES.DAMAGE_TYPE"}}
+				</label>
+				<div class="grid">
+					{{#each damageTypes}}
+						<div class="flexrow toggle-label {{#if this.active}}active{{/if}}">
+							<label class="font-size-13">
+								<input
+									type="checkbox"
+									name="system.damage.damageType.{{this.key}}"
+									{{#if this.active}}
+										checked
+									{{/if}}
+								>
+								{{this.label}}
+								<i class="fo-{{key}}"></i>
+							</label>
+						</div>
+					{{/each}}
+				</div>
+			</div>
+
+			{{!-- Weapon Range --}}
+			<div class="resource-row flexrow bgEven">
+				<label class="resource-label" for="system.range">
+					{{localize "ELECTRICEMBRACE.TEMPLATES.RANGE"}}
+				</label>
+				<select name="system.range">
+					{{selectOptions ELECTRICEMBRACE.RANGES
+						selected=system.range
+					}}
+				</select>
+			</div>
+
+			{{!-- Weapon Qualities --}}
+			<div class="grid">
+				<div class="resource-row">
+					<label class="resource-label upperC" for=" system.damage.rating">
+						{{localize "ELECTRICEMBRACE.TEMPLATES.WEAPON_QUALITIES"}}
+					</label>
+					<div class="grid item-list">
+						{{#each weaponQualities}}
+							<div
+								{{#ifCond this.active '==' true}}
+									class="flexrow toggle-label active"
+								{{else}}
+									class="flexrow toggle-label"
+								{{/ifCond}}
+							>
+								<label style="align-self: center;">
+									<input
+										type="checkbox"
+										name="system.damage.weaponQuality.{{key}}.value"
+										{{#if this.active}}
+											checked
+										{{/if}}
+									>
+									{{this.label}}
+								</label>
+								{{#if this.hasRank}}
+									<input
+										class="num-short-2"
+										name="system.damage.weaponQuality.{{this.key}}.rank"
+										type="number"
+										value="{{this.rank}}"
+									>
+								{{/if}}
+
+							</div>
+						{{/each}}
+					</div>
+				</div>
+
+        	</div>
+
+
+			<div class="resource-row">
+				<label
+					class="resource-label"
+					for=" system.damage.rating"
+				>
+					{{localize "ELECTRICEMBRACE.TEMPLATES.DAMAGE_EFFECTS"}}
+				</label>
+				<div class="grid item-list">
+					{{#each damageEffects}}
+						<div
+							{{#if this.active}}
+								class="flexrow toggle-label active"
+							{{else}}
+								class="flexrow toggle-label"
+							{{/if}}
+						>
+							<label style="align-self: center;">
+								<input
+									name="system.damage.damageEffect.{{this.key}}.value"
+									type="checkbox"
+									{{#if this.active}}
+										checked
+									{{/if}}
+								>
+								{{this.label}}
+							</label>
+							{{#if this.hasRank}}
+								<input
+									class="num-short-2"
+									name="system.damage.damageEffect.{{this.key}}.rank"
+									type="number"
+									value="{{this.rank}}"
+								>
+							{{/if}}
+						</div>
+					{{/each}}
+				</div>
+			</div>
+
+		</div>
+
+    </section>
+</form>

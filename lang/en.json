@@ -31,7 +31,10 @@
   "ELECTRICEMBRACE.TEMPLATES.Ranks_current_maximum": "Rank",
   "ELECTRICEMBRACE.TEMPLATES.Requirements": "Requirements",
   "ELECTRICEMBRACE.TEMPLATES.levelStart": "Minimal level",
-  "ELECTRICEMBRACE.TEMPLATES.levelIncrease": "Level increase per rank"
+  "ELECTRICEMBRACE.TEMPLATES.levelIncrease": "Level increase per rank",
+  "ELECTRICEMBRACE.TEMPLATES.Attributes": "Attributes",
+  "ELECTRICEMBRACE.TEMPLATES.Description": "Description",
+  "ELECTRICEMBRACE.TEMPLATES.RANGE": "Range"
   
   
 }
