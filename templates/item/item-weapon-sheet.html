@@ -88,6 +88,25 @@
 				</select>
 			</div>
 
+
+			{{!-- Melee --}}
+			<div class="resource-row flexrow bgEven">
+				<label class="resource-label" for="system.range">
+					{{localize "ELECTRICEMBRACE.TEMPLATES.MELEE"}}
+				</label>
+				<div class="flexrow toggle-label">
+					<label class="font-size-13">
+						<input
+							type="checkbox"
+							name="system.melee"
+							{{#ifCond system.melee '==' true}}
+								checked
+							{{/ifCond}}
+						>
+					</label>
+				</div>
+			</div>
+
 			{{!-- Weapon Qualities --}}
 			<div class="grid">
 				<div class="resource-row">

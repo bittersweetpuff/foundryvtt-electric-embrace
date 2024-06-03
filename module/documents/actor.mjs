@@ -51,9 +51,8 @@ export class ElectricEmbraceActor extends Actor {
     this._caluclateDefense();
     this._calculateMaxHP();
     this._calculateInitiative();
-    this._calculateMeleeDamage();
     this._calculateAttributeValues();
-
+    this._calculateMeleeDamage();
   }
 
   /**
@@ -129,8 +128,9 @@ export class ElectricEmbraceActor extends Actor {
   }
 
   _calculateMeleeDamage() {
-    const body = this.system.attributes.bod.value;
+    const body = parseInt(this.system.attributes.bod.value);
 
+    
     let meleeDamage = 0;
 
     if (body <= 7 && body >= 6) {
@@ -142,7 +142,8 @@ export class ElectricEmbraceActor extends Actor {
     else if (body >= 10) {
       meleeDamage = 3;
     }
-
+    
+    console.log("Licze melee damage ", meleeDamage, body, this.system.attributes.bod.value) 
     this.system.meleeDamage.value = meleeDamage + this.system.meleeDamage.bonus;
   };
 

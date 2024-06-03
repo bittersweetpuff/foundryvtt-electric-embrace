@@ -71,6 +71,8 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
     for (let [k, v] of Object.entries(context.system.attributes)) {
       v.label = game.i18n.localize(CONFIG.ELECTRICEMBRACE.attributes[k]) ?? k;
     }
+
+    context.meleeDamage = context.system.meleeDamage.value
   }
 
   /**
@@ -146,6 +148,7 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
     context.skills = skills;
     context.talents = talents;
     context.weapons = weapons;
+    console.log(context);
   }
 
   /* -------------------------------------------- */
