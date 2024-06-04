@@ -68,7 +68,7 @@
 										checked
 									{{/if}}
 								>
-								{{this.label}}
+								{{localize this.label}}
 								<i class="fo-{{key}}"></i>
 							</label>
 						</div>
@@ -84,6 +84,8 @@
 				<select name="system.range">
 					{{selectOptions ELECTRICEMBRACE.RANGES
 						selected=system.range
+						sort=true
+                        localize=true
 					}}
 				</select>
 			</div>
@@ -130,7 +132,7 @@
 											checked
 										{{/if}}
 									>
-									{{this.label}}
+									{{localize this.label}}
 								</label>
 								{{#if this.hasRank}}
 									<input
@@ -173,7 +175,7 @@
 										checked
 									{{/if}}
 								>
-								{{this.label}}
+								{{localize this.label}}
 							</label>
 							{{#if this.hasRank}}
 								<input

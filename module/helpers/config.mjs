@@ -94,8 +94,8 @@ ELECTRICEMBRACE.WEAPON_QUALITY_HAS_RANK = {
 };
 
 ELECTRICEMBRACE.RANGES = {
-	melee: "FALLOUT.RANGE.melee",
-	close: "FALLOUT.RANGE.close",
-	medium: "FALLOUT.RANGE.medium",
-	long: "FALLOUT.RANGE.long",
+	melee: "ELECTRICEMBRACE.RANGE.melee",
+	close: "ELECTRICEMBRACE.RANGE.close",
+	medium: "ELECTRICEMBRACE.RANGE.medium",
+	long: "ELECTRICEMBRACE.RANGE.long",
 };

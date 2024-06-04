@@ -148,7 +148,6 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
     context.skills = skills;
     context.talents = talents;
     context.weapons = weapons;
-    console.log(context);
   }
 
   /* -------------------------------------------- */
@@ -197,7 +196,6 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
 			const item = this.actor.items.get(li.data("itemId"));
 			let updatedItem = { _id: item.id, system: { tag: !item.system.tag } };
 			await this.actor.updateEmbeddedDocuments("Item", [updatedItem]);
-      console.log(item.system.tag);
 		});
 
     // Add Inventory Item

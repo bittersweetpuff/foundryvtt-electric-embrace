@@ -34,7 +34,62 @@
   "ELECTRICEMBRACE.TEMPLATES.levelIncrease": "Level increase per rank",
   "ELECTRICEMBRACE.TEMPLATES.Attributes": "Attributes",
   "ELECTRICEMBRACE.TEMPLATES.Description": "Description",
-  "ELECTRICEMBRACE.TEMPLATES.RANGE": "Range"
+  "ELECTRICEMBRACE.TEMPLATES.RANGE": "Range",
+
+  "ELECTRICEMBRACE.UI.Damage": "Damage",
+  "ELECTRICEMBRACE.UI.Type": "Type",
+
+  "ELECTRICEMBRACE.TEMPLATES.Weapon_Type": "Weapon Type",
+  "ELECTRICEMBRACE.TEMPLATES.DAMAGE": "Damage",
+  "ELECTRICEMBRACE.TEMPLATES.DAMAGE_TYPE": "Damage Type",
+  "ELECTRICEMBRACE.TEMPLATES.MELEE": "Melee Weapon",
+  "ELECTRICEMBRACE.TEMPLATES.WEAPON_QUALITIES": "Weapon qualities",
+  "ELECTRICEMBRACE.TEMPLATES.DAMAGE_EFFECTS": "Damage effects",
+
+  "ELECTRICEMBRACE.WEAPONS.weaponQuality.accurate":       "Accurate",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.blast":          "Blast",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.closeQuarters":  "Close Quarters",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.concealed":      "Concealed",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.debilitating":   "Debilitating",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.inaccurate":     "Inaccurate",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.mine":           "Mine",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.nightVision":    "Night Vision",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.parry":          "Parry",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.recon":          "Recon",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.reliable":       "Reliable",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.suppressed":     "Suppressed",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.thrown":         "Thrown",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.twoHanded":      "Two Handed",
+  "ELECTRICEMBRACE.WEAPONS.weaponQuality.heavy":          "Heavy",
+  "ELECTRICEMBRACE.WEAPONS.weaponQuality.light":          "Light",
+  "ELECTRICEMBRACE.WEAPONS.weaponQuality.homing":         "Homing",
+	"ELECTRICEMBRACE.WEAPONS.weaponQuality.unreliable":     "Unreliable",
+
+  "ELECTRICEMBRACE.RANGE.melee": "Melee",
+	"ELECTRICEMBRACE.RANGE.close": "Close",
+  "ELECTRICEMBRACE.RANGE.medium": "Medium",
+	"ELECTRICEMBRACE.RANGE.long": "Long",
+
+  "ELECTRICEMBRACE.WEAPONS.weaponType.meleeWeapons": "Melee",
+	"ELECTRICEMBRACE.WEAPONS.weaponType.shortWeapons": "Short",
+	"ELECTRICEMBRACE.WEAPONS.weaponType.longWeapons": "Long",
+	"ELECTRICEMBRACE.WEAPONS.weaponType.techWeapons": "Tech",
+	"ELECTRICEMBRACE.WEAPONS.weaponType.throwing": "Thrown",
+	"ELECTRICEMBRACE.WEAPONS.weaponType.unarmed": "Unarmed",
+
+  "ELECTRICEMBRACE.WEAPONS.damageEffect.breaking": "Breaking",
+	"ELECTRICEMBRACE.WEAPONS.damageEffect.burst": "Burst",
+	"ELECTRICEMBRACE.WEAPONS.damageEffect.persistent": "Persistent",
+  "ELECTRICEMBRACE.WEAPONS.damageEffect.piercing_x": "Piercing",
+	"ELECTRICEMBRACE.WEAPONS.damageEffect.overload": "Overload",
+	"ELECTRICEMBRACE.WEAPONS.damageEffect.spread": "Spread",
+	"ELECTRICEMBRACE.WEAPONS.damageEffect.stun": "Stun",
+	"ELECTRICEMBRACE.WEAPONS.damageEffect.vicious": "Vicious",
+
+  "ELECTRICEMBRACE.WEAPONS.damageType.physical": "Physical",
+	"ELECTRICEMBRACE.WEAPONS.damageType.energy": "Energy",
+	"ELECTRICEMBRACE.WEAPONS.damageType.overload": "Overload"
+
   
   
 }

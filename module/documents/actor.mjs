@@ -143,7 +143,6 @@ export class ElectricEmbraceActor extends Actor {
       meleeDamage = 3;
     }
     
-    console.log("Licze melee damage ", meleeDamage, body, this.system.attributes.bod.value) 
     this.system.meleeDamage.value = meleeDamage + this.system.meleeDamage.bonus;
   };
 
@@ -162,7 +161,6 @@ export class ElectricEmbraceActor extends Actor {
     delete this.system.attributes.level;
     for (const attribute in this.system.attributes)
       {
-          console.log(this.system.level.value);
           this.system.attributes[attribute].value = this.system.attributes[attribute].base + this.system.attributes[attribute].bonus;
       }
     } 
