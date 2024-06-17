@@ -1,16 +1,19 @@
 // Import document classes.
-  import { ElectricEmbraceActor } from "./documents/actor.mjs";
+import { ElectricEmbraceActor } from "./documents/actor.mjs";
 import { ElectricEmbraceItem } from "./documents/item.mjs";
 // Import sheet classes.
-  import { ElectricEmbraceActorSheet } from "./sheets/actor-sheet.mjs";
+import { ElectricEmbraceActorSheet } from "./sheets/actor-sheet.mjs";
 import { ElectricEmbraceItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
-  import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
+import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { ELECTRICEMBRACE, SYSTEM_ID } from "./helpers/config.mjs";
 import { EffectDie } from "./custom-die/EffectDie.mjs";
 import { Dialog2d20 } from "./roller/dialog2d20.mjs";
 import { diceSoNiceReadyHook } from "../hooks/diceSoNiceReadyHook.mjs";
 import { Roller2d20 } from "./roller/roller2d20.mjs";
+import { DieEEDamage } from "./roller/DieEEDamage.mjs";
+import { DieEELocation } from "./roller/DieEELocation.mjs";
+
 
 import { MomentumTracker } from "../apps/MomentumTracker.mjs";
 import registerSettings from "./helpers/settings.mjs";
@@ -22,9 +25,12 @@ import registerSettings from "./helpers/settings.mjs";
   Hooks.once('init', async function() {
 
     console.log('Electric Embrace | Initializing Electric Embrace 2d20 module');
+    console.log('Electric Embrace | LETS GOOO!');
 
     CONFIG.Dice.types.push(EffectDie);
     CONFIG.Dice.terms.e = EffectDie;
+    CONFIG.Dice.terms.c = DieEEDamage;
+	  CONFIG.Dice.terms.h = DieEELocation;
 
     // Add custom constants for configuration.
     CONFIG.ELECTRICEMBRACE = ELECTRICEMBRACE;
