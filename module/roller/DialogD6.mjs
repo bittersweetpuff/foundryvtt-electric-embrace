@@ -20,8 +20,8 @@ export class DialogD6 extends Dialog {
 		html.on("click", ".roll", async event => {
 			let diceNum = html.find(".d-number").value;
 
-			if (!this.falloutRoll) {
-				fallout.Roller2D20.rollD6({
+			if (!this.EERoll) {
+				electricembrace.EE2d20Roller.rollD6({
 					rollname: this.rollName,
 					dicenum: parseInt(diceNum),
 					weapon: this.weapon,
@@ -29,12 +29,12 @@ export class DialogD6 extends Dialog {
 				});
 			}
 			else {
-				fallout.Roller2D20.addD6({
+				electricembrace.EE2d20Roller.addD6({
 					rollname: this.rollName,
 					dicenum: parseInt(diceNum),
 					weapon: this.weapon,
 					actor: this.actor,
-					falloutRoll: this.falloutRoll,
+					EERoll: this.EERoll,
 				});
 			}
 		});
