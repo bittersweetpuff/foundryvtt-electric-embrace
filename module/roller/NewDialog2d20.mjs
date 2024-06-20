@@ -41,9 +41,9 @@ export class Dialog2d20 extends Dialog {
         let bonusDice = this.element.find('[name="bonus dice"]').val();
 
 		this.rolling = true;
-		electricembrace.EE2d20Roller.rollD20({
+		game.electricembrace.EE2d20Roller.rollD20({
 			rollname: this.rollName,
-			dicenum: this.diceNum + bonusDice,
+			dicenum: parseInt(this.diceNum) + parseInt(bonusDice),
 			attribute: attr,
 			skill: skill,
 			tag: isTag,

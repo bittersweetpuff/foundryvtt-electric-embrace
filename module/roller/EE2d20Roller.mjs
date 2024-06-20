@@ -194,7 +194,7 @@ export class EE2d20Roller {
 		};
 
         //FIX THIS!
-		const html = await renderTemplate("systems/electricembrace/templates/chat/roll2d20.hbs", rollData);
+		const html = await renderTemplate("systems/electricembrace/templates/chat/roll2d20.html", rollData);
 
 		let eeRoll = {};
 		eeRoll.rollname = rollname;

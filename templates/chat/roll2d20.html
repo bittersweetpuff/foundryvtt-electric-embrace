@@ -1,0 +1,33 @@
+<div class="dice-roll 2d20-roll">
+	<div class="dice-result">
+        <h2>{{rollname}}</h2>
+		<div class="dice-formula">{{results.length}}d20 || {{successTreshold}}</div>
+
+		<div class="dice-tooltip">
+			<section class="tooltip-part">
+				<div class="dice">
+					<header class="part-header flexrow">
+						<span class="part-formula">{{results.length}}d20</span>
+						<span class="part-total">{{successes}}</span>
+					</header>
+					<ol class="dice-rolls">
+						{{#each results}}
+						<li class="roll die d20">{{this.result}}</li>
+						{{/each}}
+					</ol>
+
+				</div>
+			</section>
+		</div>
+    <div class="flexrow">
+    <h4>SUKCESY</h4><div class="dice-total"> {{successes}} </div>
+    </div>
+    <div class="flexrow">
+    <h4>KOMPLIKACJE</h4><div class="dice-total"> {{complications}} </div>
+    </div>
+    <!-- <div class="flexrow">
+    <h4>PRZEWAGI</h4><div class="dice-total"> {{advantage}} </div>
+    </div> -->
+	</div>
+</div>
+

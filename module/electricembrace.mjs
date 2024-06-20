@@ -8,11 +8,14 @@ import { ElectricEmbraceItemSheet } from "./sheets/item-sheet.mjs";
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { ELECTRICEMBRACE, SYSTEM_ID } from "./helpers/config.mjs";
 import { EffectDie } from "./custom-die/EffectDie.mjs";
-import { Dialog2d20 } from "./roller/dialog2d20.mjs";
+//import { Dialog2d20 } from "./roller/dialog2d20.mjs";
+import { Dialog2d20 } from "./roller/NewDialog2d20.mjs";
 import { diceSoNiceReadyHook } from "../hooks/diceSoNiceReadyHook.mjs";
 import { Roller2d20 } from "./roller/roller2d20.mjs";
 import { DieEEDamage } from "./roller/DieEEDamage.mjs";
 import { DieEELocation } from "./roller/DieEELocation.mjs";
+import { EE2d20Roller } from "./roller/EE2d20Roller.mjs";
+import { DialogD6 } from "./roller/DialogD6.mjs";
 
 
 import { MomentumTracker } from "../apps/MomentumTracker.mjs";
@@ -45,7 +48,9 @@ import registerSettings from "./helpers/settings.mjs";
         MomentumTracker,
         rollItemMacro,
         Dialog2d20,
-        Roller2d20
+        Roller2d20,
+        EE2d20Roller,
+        DialogD6
       };
 
 
