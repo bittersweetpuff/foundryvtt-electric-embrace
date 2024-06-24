@@ -18,10 +18,12 @@ export class DialogD6 extends Dialog {
 		// })
 
 		html.on("click", ".roll", async event => {
-			let diceNum = html.find(".d-number").value;
+			//let diceNum = html.find(".d-number").value;
+			let diceNum = this.element.find('[name="d-num"]').val();
+
 
 			if (!this.EERoll) {
-				electricembrace.EE2d20Roller.rollD6({
+				game.electricembrace.EE2d20Roller.rollD6({
 					rollname: this.rollName,
 					dicenum: parseInt(diceNum),
 					weapon: this.weapon,
@@ -29,7 +31,7 @@ export class DialogD6 extends Dialog {
 				});
 			}
 			else {
-				electricembrace.EE2d20Roller.addD6({
+				game.electricembrace.EE2d20Roller.addD6({
 					rollname: this.rollName,
 					dicenum: parseInt(diceNum),
 					weapon: this.weapon,
@@ -59,7 +61,7 @@ export class DialogD6 extends Dialog {
 
 		const html = `<div class="flexrow electricembrace-dialog">
 		<div class="flexrow resource" style="padding:5px">
-		<label class="title-label">Number of Dice:</label><input type="number" class="d-number" value="${diceNum}">
+		<label class="title-label">Number of Dice:</label><input type="number" name="d-num" class="d-number" value="${diceNum}">
 		</div>
 		</div>`;
 

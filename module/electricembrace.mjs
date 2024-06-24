@@ -213,6 +213,42 @@ Handlebars.registerHelper("fromConfig", function(arg1, arg2) {
   return CONFIG.ELECTRICEMBRACE[arg1][arg2] ? CONFIG.ELECTRICEMBRACE[arg1][arg2] : arg2;
 });
 
+Handlebars.registerHelper("listDamageEffects", function(effects) {
+  const elements = [];
+
+  for (const key in effects) {
+    if (!CONFIG.ELECTRICEMBRACE.DAMAGE_EFFECTS.hasOwnProperty(key)) continue;
+
+    const effect = effects[key];
+
+    if (!effect.value) continue;
+
+    let effectName = game.i18n.localize(CONFIG.ELECTRICEMBRACE.DAMAGE_EFFECTS[key]);
+    if (effect.rank > 0) effectName += ` ${effect.rank}`;
+
+    //const tooltip = CONFIG.ELECTRICEMBRACE.DAMAGE_EFFECT_TOOLTIPS[key];
+
+    const resultHtml = document.createElement("span");
+    resultHtml.classList.add("effect", "hover");
+    resultHtml.dataset.key = key;
+    //resultHtml.dataset.tooltip = tooltip;
+    resultHtml.innerHTML = effectName;
+
+    elements.push(resultHtml.outerHTML);
+  }
+
+  let listString = "";
+
+  if (elements.length > 0) {
+    listString = elements.join(" || ");
+  }
+  else {
+    listString = "";
+  }
+
+  return listString;
+});
+
 // * Use with #if
 // {{#if (or
 // (eq section1 "foo")

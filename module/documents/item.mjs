@@ -3,6 +3,7 @@
   * @extends {Item}
   */
   export class ElectricEmbraceItem extends Item {
+
     /**
       * Augment the basic Item data model with additional dynamic data.
       */

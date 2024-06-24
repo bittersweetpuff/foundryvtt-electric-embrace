@@ -55,6 +55,7 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
 
     // Prepare active effects
     context.effects = prepareActiveEffectCategories(this.actor.effects);
+    console.log(context);
 
     return context;
   }
@@ -137,6 +138,7 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
       }
       // weapons
       else if (i.type === 'weapon') {
+        const weapon = this.actor.items.find(item => item._id === i._id);
         weapons.push(i);
       }
     }
@@ -228,6 +230,9 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
         li.addEventListener("dragstart", handler, false);
       });
     }
+
+    // * ROLL WEAPON DAMAGE
+		html.find(".weapon-roll-damage").click(async event => this._onWeaponDamageRoll(event));
   }
 
   /**
@@ -256,6 +261,8 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
     // Finally, create the item!
     return await Item.create(itemData, {parent: this.actor});
   }
+
+  
 
   /**
    * Handle clickable rolls.
@@ -297,6 +304,35 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
 			skill: rank,
 			tag: tag
     });
+	}
+
+  async _onWeaponDamageRoll(event) {
+		const li = $(event.currentTarget).parents(".item");
+		const item = this.actor.items.get(li.data("item-id"));
+    console.log(item)
+		const numOfDice = item.currentWeaponDamage;
+
+		if (item.isWeaponBroken) {
+			return ui.notifications.warn(
+				game.i18n.localize("FALLOUT.ERRORS.ThisWeaponIsBroken")
+			);
+		}
+
+		let rollName = item.name;
+
+		let actorUUID;
+		let _token = this.actor.token;
+		if (_token) actorUUID = this.actor.token.uuid;
+		else actorUUID = this.actor.uuid;
+
+		// console.warn(fromUuidSync(actorUUID).actor)
+
+		game.electricembrace.DialogD6.createDialog({
+			rollName: rollName,
+			diceNum: numOfDice,
+			actor: actorUUID,
+			weapon: item,
+		});
 	}
 
 }

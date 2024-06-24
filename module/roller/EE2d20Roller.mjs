@@ -253,9 +253,7 @@ export class EE2d20Roller {
 	}={}) {
 		let formula = `${dicenum}dc`;
 		let roll = new Roll(formula);
-
 		await roll.evaluate({ async: true });
-
 		await EE2d20Roller.parseD6Roll({
 			rollname: rollname,
 			roll: roll,
@@ -408,7 +406,7 @@ export class EE2d20Roller {
 		};
 
         //FIX THIS ASWELL!
-		const html = await renderTemplate("systems/fallout/templates/chat/rollD6.hbs", rollData);
+		const html = await renderTemplate("systems/electricembrace/templates/chat/rollD6.html", rollData);
 		let eeRoll = {};
 		eeRoll.rollname = rollname;
 		eeRoll.dicesRolled = dicesRolled;

@@ -33,11 +33,13 @@
 							<strong>
 								{{item.system.damage.rating}}
 							</strong>
-							{{#ifCond item.system.melee '==' true}}
+							{{#ifCond item.system.melee '===' true}}
 								+
-								<strong>
-									{{meleeDamage}}
-								</strong>
+								<span>
+									<strong>
+										{{meleeDamage}}
+									</strong>
+								</span>
 							{{/ifCond}}
 							<span class="fo-pip-boy fo-blue"></span>
 						</a>

@@ -1,0 +1,40 @@
+<div class="fallout-chat-message">
+	<div class="content">
+		<h2>{{rollname}}</h2>
+		<div class="damage-plaq flexrow">
+			<h3 class="flexlarge" style="margin: 0;">
+				{{localize "ELECTRICEMBRACE.UI.Damage"}}: {{damage}} |
+				{{localize "ELECTRICEMBRACE.TEMPLATES.Effects"}}: {{effects}}
+			</h3>
+			<div style="text-align: end;">
+				{{#each weaponDamageTypesList as |damageType|}}
+					<i
+						class="fo-{{damageType}}"
+						title="{{fromConfig "DAMAGE_TYPES" damageType}}"></i>
+				{{/each}}
+			</div>
+		</div>
+		<p class="hit-location-label" style="color: grey">
+			<strong>
+				{{localize 'ELECTRICEMBRACE.TEMPLATES.Damage_Effects'}}:
+			</strong>
+            {{{listDamageEffects weapon.system.damage.damageEffect}}}
+		</p>
+		<div class="dices-result" style="display: flex; flex-wrap: wrap;">
+			{{#each results as |dice|}}
+				<span class="dice-icon d6 face-{{dice.face}}{{#if reroll}} reroll{{/if}}{{#ifCond effect '==' 1}} effect{{/ifCond}}" data-index="{{@index}}"></span>
+			{{/each}}
+		</div>
+        <div class="dice-tooltip">
+			<section class="tooltip-part">
+				<div class="dice">
+					<ol class="dice-rolls">
+						{{#each results}}
+						<li class="roll dieeedamage">{{this.result}}</li>
+						{{/each}}
+					</ol>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
