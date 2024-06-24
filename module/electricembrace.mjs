@@ -244,6 +244,8 @@ Handlebars.registerHelper({
     Hooks.on("hotbarDrop", (bar, data, slot) => createItemMacro(data, slot));
 
     game.electricembrace.MomentumTracker.initialise();
+    game.electricembrace.MomentumTracker.setAP("partyAP", 0);
+		game.electricembrace.MomentumTracker.setAP("gmAP", startingAp);
 
   });
 

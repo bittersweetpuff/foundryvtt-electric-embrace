@@ -5,3 +5,64 @@ $c-dark: #191813;
 $c-faint: #c9c7b8;
 $c-beige: #b5b3a4;
 $c-tan: #444;
+
+$f-orange: #d8903f;
+$f-green: #b4bb5b;
+$f-blue: #729eb2;
+$f-tile: #6ea898;
+$f-yellow: #cbab58;
+$f-red: #e37e6c;
+$f-purple: #8a92b3;
+$f-blue-grey-l: #c8d0d4;
+$f-yellow-light: #eee787;
+
+$fa-green: #86aa90;
+$fa-brown: #8d7c5b;
+$fa-blue: #4eb9ca;
+$fa-orange: #e09552;
+$fa-grey: #b8b4a1;
+$fa-punch: #dbab96;
+$fa-purple: #b2abbc;
+
+$f-vault-blue: #325885;
+$f-vault-green: #04dc17;
+$f-valut-dark-green: #325885;
+// #444e47;
+//#5a6361
+
+$f-healthy: $f-vault-green;
+$f-wounded: $f-vault-blue;
+$f-crippled: $f-vault-blue;
+
+// $c-font-prim: black;
+// $c-font-prim-contra: rgb(245, 243, 215);
+// $c-font-sec: lighten($c-font-prim, 10%);
+// $bg-sheet: url(../assets/ui/window-bg.webp);
+// $c-char-header: #fff;
+// $c-char-itemlist-bg: #fff;
+// $c-char-input-bg: #fff;
+// $c-char-input: black;
+// $c-pipboy-screen: #fff;
+//$f-list-green-1: #e2efe6;
+//$f-list-green-2: #c3dfcb;
+
+$c-font-prim: rgb(238, 231, 135);
+$c-font-prim-contra: $f-vault-blue;
+$c-font-sec: hsla(56, 75%, 73%, 0.61);
+$bg-sheet: url("");
+$c-char-header: darken($f-vault-blue, 10%);
+$c-npc-header: darken($f-valut-dark-green, 10%);
+$c-char-itemlist-bg: rgba(0, 0, 0, 0.2);
+$c-char-input-bg: rgba(0, 0, 0, 0.2);
+$c-char-input: $c-font-prim;
+$c-pipboy-screen: $f-vault-blue;
+$f-list-green-1: #0000002f;
+$f-list-green-2: #0000004f;
+
+$f-screen: $f-vault-blue;
+$f-screen-line: #000000;
+$f-plaque: $c-pipboy-screen;
+$f-plaque-text: $c-font-prim;
+
+$c-journal-title: #fff;
+$c-journal-title-bg: #dd8d2f;

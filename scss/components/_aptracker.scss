@@ -15,15 +15,15 @@
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
 		//color: white;
-		&.gm {
-			@include element-color($f-vault-blue, 2);
-		}
-		&.party {
-			@include element-color(darken($fa-green, 10%), 3);
-		}
-		&.maxAP-box {
-			@include element-color(darken($f-purple, 10%), 3);
-		}
+		// &.gm {
+		// 	@include element-color($f-vault-blue, 2);
+		// }
+		// &.party {
+		// 	@include element-color(darken($fa-green, 10%), 3);
+		// }
+		// &.maxAP-box {
+		// 	@include element-color(darken($f-purple, 10%), 3);
+		// }
 
 		.toggle-maxAp {
 			position: absolute;

@@ -1,71 +1,30 @@
 export class MomentumTracker extends Application {
 
-    constructor(options={}) {
+	constructor(options={}) {
 		if (MomentumTracker._instance) {
-			throw new Error("MomentumTracker already has an instance!!!");
+			throw new Error("APTracker already has an instance!!!");
 		}
 
 		super(options);
 
 		MomentumTracker._instance = this;
 		MomentumTracker.closed = true;
-
-		this.data = {};
 	}
 
+
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["electricembrace", "ap-tracker"],
 			height: "200",
 			id: "ap-tracker-app",
 			popOut: false,
 			resizable: false,
 			template: "systems/electricembrace/templates/apps/ap-tracker.html",
-			title: "Momentum Tracker",
+			title: "AP Tracker",
 			width: "auto",
 		});
 	}
 
-	// override
-	getData() {
-		super.getData();
-
-		const maxAppShowToPlayers = game.settings.get(
-			"electricembrace", "maxAppShowToPlayers"
-		);
-		this.data.maxAppShowToPlayers = game.user.isGM || maxAppShowToPlayers;
-
-		const showGMMomentumToPlayers = game.settings.get(
-			"electricembrace", "gmMomentumShowToPlayers"
-		);
-		this.data.showGMMomentumToPlayers =
-			game.user.isGM || showGMMomentumToPlayers;
-
-		this.data.gmAP = game.settings.get("electricembrace", "gmAP");
-		this.data.maxAP = game.settings.get("electricembrace", "maxAP");
-		this.data.partyAP = game.settings.get("electricembrace", "partyAP");
-
-		this.data.isGM = game.user.isGM;
-
-		return this.data;
-	}
-
-	static async initialise() {
-		if (this._instance) return;
-
-		console.log("Initialising Advantage Tracker");
-		new MomentumTracker();
-
-		this.renderMomentumTracker();
-		this.registerSocketEvents();
-	}
-
-	static renderMomentumTracker() {
-		if (MomentumTracker._instance){
-			MomentumTracker._instance.render(true);
-			console.log("RENDERING TRACKER");
-		}
-	}
 
 	activateListeners(html) {
 		super.activateListeners(html);
@@ -83,18 +42,12 @@ export class MomentumTracker extends Application {
 
 		html.find(".ap-add, .ap-sub").click(ev => {
 			const type = $(ev.currentTarget).parents(".ap-resource").attr("data-type");
-
 			const change = $(ev.currentTarget).hasClass("ap-add") ? 1 : -1;
 
-			const currentValue = game.settings.get("electricembrace", type);
+			const currentValue = game.settings.get(SYSTEM_ID, type);
+			const newValue = parseInt(currentValue) + change;
 
-			const maxAP = game.settings.get("electricembrace", "maxAP");
-
-			if (parseInt(currentValue) < maxAP || parseInt(currentValue) > 0) {
-				const newValue = parseInt(currentValue) + change;
-				MomentumTracker.setAP(type, newValue);
-			}
-
+			MomentumTracker.setAP(type, newValue);
 		});
 
 		html.find(".toggle-maxAp").click(ev => {
@@ -105,10 +58,65 @@ export class MomentumTracker extends Application {
 	}
 
 
+	static async adjustAP(type, diff) {
+		if (!game.user.isGM) {
+			game.socket.emit("system.electricembrace", {
+				operation: "adjustAP",
+				data: { diff, type },
+			});
+			return;
+		}
+
+		diff = Math.round(diff);
+
+		let momentum = game.settings.get(SYSTEM_ID, type);
+		momentum += diff;
+
+		this.setAP(type, momentum);
+	}
+
+
+	getData() {
+		const data = {
+			gmAP: game.settings.get(SYSTEM_ID, "gmAP"),
+			isGM: game.user.isGM,
+			maxAP: game.settings.get(SYSTEM_ID, "maxAP"),
+			partyAP: game.settings.get(SYSTEM_ID, "partyAP"),
+		};
+
+		data.showGMMomentumToPlayers = game.user.isGM
+			? true
+			: game.settings.get(SYSTEM_ID, "gmMomentumShowToPlayers");
+
+		data.maxAppShowToPlayers = game.user.isGM
+			? true
+			: game.settings.get(SYSTEM_ID, "maxAppShowToPlayers");
+
+		return data;
+	}
+
+
+	static async initialise() {
+		if (this._instance) return;
+
+		console.log("Initialising APTracker");
+		new MomentumTracker();
+
+		this.renderMomentumTracker();
+		this.registerSocketEvents();
+	}
+
+
 	static async registerSocketEvents() {
-		console.log("Registering MomentumTracker socket events");
+		console.log("Registering APTracker socket events");
 
 		game.socket.on("system.electricembrace", ev => {
+			if (ev.operation === "adjustAP") {
+				if (game.user.isGM) {
+					this.adjustAP(ev.data.type, ev.data.diff);
+				}
+			}
+
 			if (ev.operation === "setAP") {
 				if (game.user.isGM) {
 					this.setAP(ev.data.type, ev.data.value);
@@ -119,9 +127,13 @@ export class MomentumTracker extends Application {
 		});
 	}
 
-	static async setAP(type, value) {
-		value = Math.round(value);
 
+	static renderMomentumTracker() {
+		if (MomentumTracker._instance) MomentumTracker._instance.render(true);
+	}
+
+
+	static async setAP(type, value) {
 		if (!game.user.isGM) {
 			game.socket.emit("system.electricembrace", {
 				operation: "setAP",
@@ -130,42 +142,32 @@ export class MomentumTracker extends Application {
 			return;
 		}
 
-		let maxAP = game.settings.get("electricembrace", "maxAP");
-		let partyAP = game.settings.get("electricembrace", "partyAP");
+		value = Math.round(value);
+		value = Math.max(0, value);
 
-		if (partyAP > value && type === "maxAP") {
-			await game.settings.set("electricembrace", "maxAP", value);
-			await game.settings.set("electricembrace", "partyAP", value);
+		const maxAP = await game.settings.get(SYSTEM_ID, "maxAP");
 
-			MomentumTracker.renderMomentumTracker();
+		if (type === "partyAP") value = Math.min(value, maxAP);
 
-			game.socket.emit("system.electricembrace", { operation: "updateAP" });
-			return;
+		if (type === "maxAP") {
+			const currentPartyAP =
+				await game.settings.get(SYSTEM_ID, "partyAP");
+
+			const newPartyAP = Math.min(value, currentPartyAP);
+
+			await game.settings.set(SYSTEM_ID, "partyAP", newPartyAP);
 		}
 
-		if (value > maxAP && type === "partyAP") {
-			await game.settings.set("electricembrace", type, maxAP);
+		await game.settings.set(SYSTEM_ID, type, value);
 
-			MomentumTracker.renderMomentumTracker();
-		}
-		else if (value < 0) {
-			await game.settings.set("electricembrace", type, 0);
-
-			MomentumTracker.renderMomentumTracker();
-		}
-		else {
-			await game.settings.set("electricembrace", type, value);
-
-			MomentumTracker.renderMomentumTracker();
-		}
+		MomentumTracker.renderMomentumTracker();
 
 		// emit socket event for the players to update
 		game.socket.emit("system.electricembrace", { operation: "updateAP" });
 	}
 
+
 	static updateAP() {
 		MomentumTracker.renderMomentumTracker();
 	}
-
-
 }
