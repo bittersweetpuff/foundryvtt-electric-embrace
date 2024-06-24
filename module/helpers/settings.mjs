@@ -13,7 +13,7 @@ export default function registerSettings() {
 		default: 0,
 		type: Number,
 	});
-
+	
 	game.settings.register(SYSTEM_ID, "gmAP", {
 		name: "GM AP",
 		scope: "world",

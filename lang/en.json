@@ -88,8 +88,11 @@
 
   "ELECTRICEMBRACE.WEAPONS.damageType.physical": "Physical",
 	"ELECTRICEMBRACE.WEAPONS.damageType.energy": "Energy",
-	"ELECTRICEMBRACE.WEAPONS.damageType.overload": "Overload"
+	"ELECTRICEMBRACE.WEAPONS.damageType.overload": "Overload",
 
+  "ELECTRICEMBRACE.TEMPLATES.PARTY_MOMENTUM": "Momentum",
+  "ELECTRICEMBRACE.TEMPLATES.MAX_PARTY_MOMENTUM": "MAX Momentum",
+  "ELECTRICEMBRACE.TEMPLATES.GMMOMENTUM": "GM Momentum"
   
   
 }

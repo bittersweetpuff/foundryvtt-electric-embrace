@@ -36,7 +36,6 @@ export class MomentumTracker extends Application {
 		html.find(".ap-input").change(ev => {
 			const type = $(ev.currentTarget).parents(".ap-resource").attr("data-type");
 			const value = ev.target.value;
-
 			MomentumTracker.setAP(type, value);
 		});
 
@@ -99,7 +98,6 @@ export class MomentumTracker extends Application {
 	static async initialise() {
 		if (this._instance) return;
 
-		console.log("Initialising APTracker");
 		new MomentumTracker();
 
 		this.renderMomentumTracker();
@@ -108,7 +106,6 @@ export class MomentumTracker extends Application {
 
 
 	static async registerSocketEvents() {
-		console.log("Registering APTracker socket events");
 
 		game.socket.on("system.electricembrace", ev => {
 			if (ev.operation === "adjustAP") {
@@ -123,13 +120,17 @@ export class MomentumTracker extends Application {
 				}
 			}
 
-			if (ev.operation === "updateAP") this.updateAP();
+			if (ev.operation === "updateAP") {
+					this.updateAP();
+				}
 		});
 	}
 
 
 	static renderMomentumTracker() {
-		if (MomentumTracker._instance) MomentumTracker._instance.render(true);
+		if (MomentumTracker._instance){
+			MomentumTracker._instance.render(true);
+		} 
 	}
 
 
@@ -141,7 +142,6 @@ export class MomentumTracker extends Application {
 			});
 			return;
 		}
-
 		value = Math.round(value);
 		value = Math.max(0, value);
 
@@ -158,7 +158,11 @@ export class MomentumTracker extends Application {
 			await game.settings.set(SYSTEM_ID, "partyAP", newPartyAP);
 		}
 
+
+
 		await game.settings.set(SYSTEM_ID, type, value);
+
+		
 
 		MomentumTracker.renderMomentumTracker();
 
@@ -168,6 +172,7 @@ export class MomentumTracker extends Application {
 
 
 	static updateAP() {
+
 		MomentumTracker.renderMomentumTracker();
 	}
 }
