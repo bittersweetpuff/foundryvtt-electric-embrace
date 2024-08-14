@@ -94,7 +94,20 @@
   "ELECTRICEMBRACE.TEMPLATES.MAX_PARTY_MOMENTUM": "MAX Momentum",
   "ELECTRICEMBRACE.TEMPLATES.GMMOMENTUM": "GM Momentum",
   "ELECTRICEMBRACE.TEMPLATES.Effects": "Effects",
-  "ELECTRICEMBRACE.TEMPLATES.Damage_Effects": "Damage Effects"
-  
-  
+  "ELECTRICEMBRACE.TEMPLATES.Damage_Effects": "Damage Effects",
+
+  "ELECTRICEMBRACE.TEMPLATES.Locations": "Locations",
+  "ELECTRICEMBRACE.TEMPLATES.Resistances": "Resistances",
+
+  "ELECTRICEMBRACE.RESISTANCE.energy": "Energy",
+  "ELECTRICEMBRACE.RESISTANCE.overload": "Overload",
+  "ELECTRICEMBRACE.RESISTANCE.physical": "Physical",
+
+  "ELECTRICEMBRACE.BODYLOCATION.character.armL": "Left Arm",
+  "ELECTRICEMBRACE.BODYLOCATION.character.armR": "Right Arm",
+  "ELECTRICEMBRACE.BODYLOCATION.character.head": "Head",
+  "ELECTRICEMBRACE.BODYLOCATION.character.legL": "Left Leg",
+  "ELECTRICEMBRACE.BODYLOCATION.character.legR": "Right Leg",
+  "ELECTRICEMBRACE.BODYLOCATION.character.torso": "Torso"
+
 }
