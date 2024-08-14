@@ -1,0 +1,49 @@
+{{!-- This template is a fallback for when items don't have more specific templates. --}}
+{{!-- Generally, you'll want to make more specific templates when possible. --}}
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="attributes">Attributes</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description">
+      {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+        <div class="grid grid-2col">
+            <div class="locations pad-5">
+                <h4 class="resource-header">{{localize "ELECTRICEMBRACE.TEMPLATES.Locations"}}</h4>
+                {{#each system.location as |isChecked key|}}
+                <div class="location flexrow align-mid">
+                    <label class="checkbox-label">{{localize (concat 'ELECTRICEMBRACE.BODYLOCATION.character.' key)}}</label>
+                    <input class="input-checkbox" type="checkbox" name="system.location.{{key}}" {{checked isChecked}} data-dtype="Boolean" />
+                </div>
+                {{/each}}
+            </div>
+            <div class="resistances pad-3">
+                <h4 class="resource-header">{{localize "ELECTRICEMBRACE.TEMPLATES.Resistances"}}</h4>
+                {{#each system.resistance as |resistance key|}}
+                <div class="flexrow resource-row align-mid">
+                    <label for="system.resistance.{{key}}" class="capitalized">{{localize (concat 'ELECTRICEMBRACE.RESISTANCE.'key)}}</label>
+                    <input class="num-short-2" type="number" name="system.resistance.{{key}}" value="{{resistance}}" />
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+  </section>
+</form>
