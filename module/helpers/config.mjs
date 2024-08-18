@@ -5,7 +5,7 @@ export const ELECTRICEMBRACE = {};
  * The set of Ability Scores used within the sytem.
  * @type {Object}
  */
- ELECTRICEMBRACE.attributes = {
+ELECTRICEMBRACE.attributes = {
    "bod": "ELECTRICEMBRACE.AttributeBod",
    "agi": "ELECTRICEMBRACE.AttributeAgi",
    "per": "ELECTRICEMBRACE.AttributePer",
@@ -99,3 +99,18 @@ ELECTRICEMBRACE.RANGES = {
 	medium: "ELECTRICEMBRACE.RANGE.medium",
 	long: "ELECTRICEMBRACE.RANGE.long",
 };
+
+ELECTRICEMBRACE.CYBERNETICS_LOCATIONS = {
+	"skin": "skin",
+	"os": "os",
+	"bodykit": "bodykit",
+	"skeleton": "skeleton",
+	"arms": "arms",
+	"nervous": "nervous",
+	"head": "head",
+	"drill": "drill",
+	"heart": "heart",
+	"legs": "legs",
+	"other": "other"
+ };
+
