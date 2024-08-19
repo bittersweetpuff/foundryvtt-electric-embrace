@@ -199,6 +199,16 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
 			await this.actor.updateEmbeddedDocuments("Item", [updatedItem]);
 		});
 
+    //EE Change item quantity
+    html.find(".consumable .item-quantity input").change(async ev => {
+      console.log("Changing item qunatity!")
+			let newQuantity = parseInt($(ev.currentTarget).val());
+			const li = $(ev.currentTarget).parents(".item");
+			const item = this.actor.items.get(li.data("itemId"));
+			let updatedItem = { _id: item.id, system: { quantity: newQuantity } };
+			await this.actor.updateEmbeddedDocuments("Item", [updatedItem]);
+		});
+
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
 
