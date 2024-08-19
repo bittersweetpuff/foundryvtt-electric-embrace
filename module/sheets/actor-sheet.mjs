@@ -209,6 +209,16 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
 			await this.actor.updateEmbeddedDocuments("Item", [updatedItem]);
 		});
 
+    //EE Change talent rank
+    html.find(".talents .item-talent-value input").change(async ev => {
+      console.log("Changing talent rank!")
+			let newRank = parseInt($(ev.currentTarget).val());
+			const li = $(ev.currentTarget).parents(".item");
+			const item = this.actor.items.get(li.data("itemId"));
+			let updatedItem = { _id: item.id, system: { "rank.value": newRank } };
+			await this.actor.updateEmbeddedDocuments("Item", [updatedItem]);
+		});
+
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
 
