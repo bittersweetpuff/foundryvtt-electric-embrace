@@ -1,0 +1,44 @@
+<section class="grid grid-3col">
+    <aside class="sidebar">
+
+      {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+      use both the "grid" and "grid-Ncol" class where "N" can be any number
+      from 1 to 12 and will create that number of columns.  --}}
+        <div class="abilities flexcol">
+            <li class="item flexrow items-header">
+                <div class="attribute-label">Derived Statistics</div>
+            </li>
+            <div class=" flexrow">
+                <div class="item-name flex3">
+                    <h4>Melee Damage</h4>
+                </div>
+                <div class="melee-damage-value flex1">
+                    <input type="number" name="value" value="{{system.meleeDamage.value}}">
+                </div>
+            </div>
+            <div class=" flexrow">
+                <div class="item-name flex3">
+                    <h4>Defense</h4>
+                </div>
+                <div class="defense-value flex1">
+                    <input type="number" name="value" value="{{system.defense.value}}">
+                </div>
+            </div>
+            <div class=" flexrow">
+                <div class="item-name flex3">
+                    <h4>Initiative</h4>
+                </div>
+                <div class="initiative-value flex1">
+                    <input type="number" name="value" value="{{system.initiative.value}}">
+                </div>
+            </div>
+        </div>
+      {{> "systems/electricembrace/templates/actor/parts/actor-talents.html"}}
+    </aside>
+
+    {{!-- For the main features list, span the right two columns --}}
+    <section class="main grid-span-2">
+
+    </section>
+
+</section>

@@ -71,7 +71,7 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
     <a class="item" data-tab="features">Features</a>
-    <a class="item" data-tab="description">Status</a>
+    <a class="item" data-tab="status">Status</a>
     <a class="item" data-tab="items">Gear</a>
     <a class="item" data-tab="spells">Cybernetics</a>
     <a class="item" data-tab="effects">Hacks</a>
@@ -117,9 +117,10 @@
     </div>
 
     {{!-- Biography Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="description">
+    <div class="tab status" data-group="primary" data-tab="status">
       {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
-      {{editor system.biography target="system.biography" rollData=rollData button=true owner=owner editable=editable}}
+      {{!-- {{editor system.biography target="system.biography" rollData=rollData button=true owner=owner editable=editable}} --}}
+      {{> "systems/electricembrace/templates/actor/parts/actor-status.html"}}
     </div>
 
     {{!-- Owned Items Tab --}}
@@ -129,7 +130,7 @@
 
     {{!-- Owned Spells Tab --}}
     <div class="tab spells" data-group="primary" data-tab="spells">
-      {{> "systems/electricembrace/templates/actor/parts/actor-spells.html"}}
+      {{> "systems/electricembrace/templates/actor/parts/actor-cybernetics.html"}}
     </div>
 
     {{!-- Active Effects Tab --}}
