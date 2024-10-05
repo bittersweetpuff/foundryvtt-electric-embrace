@@ -233,6 +233,14 @@
           "bonus": 0,
           "value": 0
         },
+        "ram": {
+          "max": 0,
+          "value": 0
+        },
+        "hackAttack": {
+          "bonus": 0,
+          "value": 0
+        },
         "resistance": {
           "energy": 0,
           "overload": 0,
@@ -317,6 +325,7 @@
     "battlehack":{
       "difficulty": "0",
       "templates": [
+        "activable",
         "base",
         "physical",
         "equipable"

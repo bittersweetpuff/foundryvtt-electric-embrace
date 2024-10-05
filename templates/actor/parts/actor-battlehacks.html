@@ -10,26 +10,26 @@
             </li>
             <div class=" flexrow">
                 <div class="item-name flex3">
-                    <h4>Hack Attack</h4>
+                    <h4>Battlehac Attack</h4>
                 </div>
-                <div class="melee-damage-value flex1">
-                    <input type="number" name="value" value="{{system.meleeDamage.value}}">
+                <div class="hack-attack-value flex1">
+                    <input type="number" name="value" value="{{system.hackAttack.value}}">
                 </div>
             </div>
             <div class=" flexrow">
                 <div class="item-name flex3">
                     <h4>Max RAM</h4>
                 </div>
-                <div class="defense-value flex1">
-                    <input type="number" name="value" value="{{system.defense.value}}">
+                <div class="ram-max flex1">
+                    <input type="number" name="max" value="{{system.ram.max}}">
                 </div>
             </div>
             <div class=" flexrow">
                 <div class="item-name flex3">
                     <h4>Remaining RAM</h4>
                 </div>
-                <div class="initiative-value flex1">
-                    <input type="number" name="value" value="{{system.initiative.value}}">
+                <div class="ram-value flex1">
+                    <input type="number" name="value" value="{{system.ram.value}}">
                 </div>
             </div>
         </div>
@@ -41,6 +41,8 @@
             <li class="item flexrow items-header">
               <div class="item-name">Battlehack</div>
               <div class="item-difficulty">Difficulty</div>
+              <div class="item-ramcost">RAM Cost</div>
+              <div class="item-control"></div>
             </li>
             {{#each battlehacks as |item id|}}
               <li class="item skill flexrow" data-item-id="{{item._id}}">
@@ -50,8 +52,14 @@
                 <div class="item-difficulty">
                     <h4>{{item.system.difficulty}}</h4>
                 </div>
-                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                <div class="item-ramcost">
+                    <h4>{{item.system.ramCost}}</h4>
+                </div>
+                <div class = "flex0">
+                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </div>
+                  
         
               </li>
             {{/each}}
