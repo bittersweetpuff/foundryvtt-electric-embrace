@@ -14,9 +14,13 @@
 			</div>
       <div class="item-skill-tag">
 				<input type="checkbox" name="tag" {{#ifCond item.system.tag '==' true}}checked{{/ifCond}} >
+      </div>
+
+      <div class = "flex0">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
       </div>
+      
     </li>
   {{/each}}
 </ol>
