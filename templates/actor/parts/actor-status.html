@@ -33,7 +33,36 @@
                 </div>
             </div>
         </div>
-      {{> "systems/electricembrace/templates/actor/parts/actor-talents.html"}}
+      
+        <div class="abilities flexcol">
+            <li class="item flexrow items-header">
+                <div class="attribute-label">Resistances</div>
+            </li>
+            <div class=" flexrow">
+                <div class="item-name flex3">
+                    <h4>Energy</h4>
+                </div>
+                <div class="energy-resistance-value flex1">
+                    <input type="number" name="value" value="{{system.body_parts.armL.resistance.energy}}">
+                </div>
+            </div>
+            <div class=" flexrow">
+                <div class="item-name flex3">
+                    <h4>Overload</h4>
+                </div>
+                <div class="overload-resistance-value flex1">
+                    <input type="number" name="value" value="{{system.body_parts.armL.resistance.overload}}">
+                </div>
+            </div>
+            <div class=" flexrow">
+                <div class="item-name flex3">
+                    <h4>Physical</h4>
+                </div>
+                <div class="physical-resistance-value flex1">
+                    <input type="number" name="value" value="{{system.body_parts.armL.resistance.physical}}">
+                </div>
+            </div>
+        </div>
     </aside>
 
     {{!-- For the main features list, span the right two columns --}}
