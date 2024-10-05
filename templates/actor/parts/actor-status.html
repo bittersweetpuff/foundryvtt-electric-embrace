@@ -68,6 +68,114 @@
     {{!-- For the main features list, span the right two columns --}}
     <section class="main grid-span-2">
 
+        {{!-- Head --}}
+        <div class="resources grid grid-3col">
+            <div class="resource flex-group-center">
+                <span>   </span>
+            </div>
+
+            <div class="resource flex-group-center">
+                <li class="item flexrow items-header">
+                    <div class="head-label">Head</div>
+                </li>
+              <label for="system.body_parts.head" class="resource-label">Wounds<span> / </span>Treated</label>
+              <div class="resource-content flexrow flex-center flex-between">
+                <input type="text" name="system.body_parts.head.injuryOpenCount" value="{{system.body_parts.head.injuryOpenCount}}" data-dtype="Number"/>
+                <span> / </span>
+                <input type="text" name="system.body_parts.head.injuryTreatedCount" value="{{system.body_parts.head.injuryTreatedCount}}" data-dtype="Number"/>
+              </div>
+            </div>
+
+            <div class="resource flex-group-center">
+                <span>   </span>
+            </div>
+        </div>
+        
+        {{!-- Arms --}}
+        <div class="resources grid grid-3col">
+            <div class="resource flex-group-center">
+                <li class="item flexrow items-header">
+                    <div class="armL-label">Left Arm</div>
+                </li>
+              <label for="system.body_parts.armL" class="resource-label">Wounds<span> / </span>Treated</label>
+              <div class="resource-content flexrow flex-center flex-between">
+                <input type="text" name="system.body_parts.armL.injuryOpenCount" value="{{system.body_parts.armL.injuryOpenCount}}" data-dtype="Number"/>
+                <span> / </span>
+                <input type="text" name="system.body_parts.armL.injuryTreatedCount" value="{{system.body_parts.armL.injuryTreatedCount}}" data-dtype="Number"/>
+              </div>
+            </div>
+
+            <div class="resource flex-group-center">
+                <span>   </span>
+            </div>
+
+            <div class="resource flex-group-center">
+                <li class="item flexrow items-header">
+                    <div class="armR-label">Right Arm</div>
+                </li>
+              <label for="system.body_parts.armR" class="resource-label">Wounds<span> / </span>Treated</label>
+              <div class="resource-content flexrow flex-center flex-between">
+                <input type="text" name="system.body_parts.armR.injuryOpenCount" value="{{system.body_parts.armR.injuryOpenCount}}" data-dtype="Number"/>
+                <span> / </span>
+                <input type="text" name="system.body_parts.armR.injuryTreatedCount" value="{{system.body_parts.armR.injuryTreatedCount}}" data-dtype="Number"/>
+              </div>
+            </div>
+        </div>
+
+        {{!-- Torso --}}
+        <div class="resources grid grid-3col">
+            <div class="resource flex-group-center">
+                <span>   </span>
+            </div>
+
+            <div class="resource flex-group-center">
+                <li class="item flexrow items-header">
+                    <div class="torso-label">Torso</div>
+                </li>
+              <label for="system.body_parts.torso" class="resource-label">Wounds<span> / </span>Treated</label>
+              <div class="resource-content flexrow flex-center flex-between">
+                <input type="text" name="system.body_parts.torso.injuryOpenCount" value="{{system.body_parts.torso.injuryOpenCount}}" data-dtype="Number"/>
+                <span> / </span>
+                <input type="text" name="system.body_parts.torso.injuryTreatedCount" value="{{system.body_parts.torso.injuryTreatedCount}}" data-dtype="Number"/>
+              </div>
+            </div>
+
+            <div class="resource flex-group-center">
+                <span>   </span>
+            </div>
+        </div>
+
+        {{!-- Legs --}}
+        <div class="resources grid grid-3col">
+            <div class="resource flex-group-center">
+                <li class="item flexrow items-header">
+                    <div class="legL-label">Left Leg</div>
+                </li>
+              <label for="system.body_parts.legL" class="resource-label">Wounds<span> / </span>Treated</label>
+              <div class="resource-content flexrow flex-center flex-between">
+                <input type="text" name="system.body_parts.legL.injuryOpenCount" value="{{system.body_parts.legL.injuryOpenCount}}" data-dtype="Number"/>
+                <span> / </span>
+                <input type="text" name="system.body_parts.legL.injuryTreatedCount" value="{{system.body_parts.legL.injuryTreatedCount}}" data-dtype="Number"/>
+              </div>
+            </div>
+
+            <div class="resource flex-group-center">
+                <span>   </span>
+            </div>
+
+            <div class="resource flex-group-center">
+                <li class="item flexrow items-header">
+                    <div class="legR-label">Right Leg</div>
+                </li>
+              <label for="system.body_parts.legR" class="resource-label">Wounds<span> / </span>Treated</label>
+              <div class="resource-content flexrow flex-center flex-between">
+                <input type="text" name="system.body_parts.legR.injuryOpenCount" value="{{system.body_parts.legR.injuryOpenCount}}" data-dtype="Number"/>
+                <span> / </span>
+                <input type="text" name="system.body_parts.legR.injuryTreatedCount" value="{{system.body_parts.legR.injuryTreatedCount}}" data-dtype="Number"/>
+              </div>
+            </div>
+        </div>
+
     </section>
 
 </section>
