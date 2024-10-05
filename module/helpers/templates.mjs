@@ -14,6 +14,7 @@
     "systems/electricembrace/templates/actor/parts/actor-skills.html",
     "systems/electricembrace/templates/actor/parts/actor-talents.html",
     "systems/electricembrace/templates/actor/parts/actor-cybernetics.html",
-    "systems/electricembrace/templates/actor/parts/actor-status.html"
+    "systems/electricembrace/templates/actor/parts/actor-status.html",
+    "systems/electricembrace/templates/actor/parts/actor-battlehacks.html"
   ]);
 };
