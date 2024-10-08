@@ -39,7 +39,71 @@
       "path": "lang/pl.json"
     }
   ],
-  "packs": [],
+  "packs": [
+    {
+			"name": "apparel",
+			"label": "Apparel",
+			"system": "electricembrace",
+			"path": "packs/apparel",
+			"type": "Item",
+			"private": false,
+			"flags": {}
+		},
+    {
+			"name": "battlehacks",
+			"label": "Battlehacks",
+			"system": "electricembrace",
+			"path": "packs/battlehacks",
+			"type": "Item",
+			"private": false,
+			"flags": {}
+		},
+    {
+			"name": "consumables",
+			"label": "Consumables",
+			"system": "electricembrace",
+			"path": "packs/consumables",
+			"type": "Item",
+			"private": false,
+			"flags": {}
+		},
+    {
+			"name": "cyberware",
+			"label": "Cyberware",
+			"system": "electricembrace",
+			"path": "packs/cyberware",
+			"type": "Item",
+			"private": false,
+			"flags": {}
+		},
+    {
+			"name": "skills",
+			"label": "Skills",
+			"system": "electricembrace",
+			"path": "packs/skills",
+			"type": "Item",
+			"private": false,
+			"flags": {}
+		},
+    {
+			"name": "talents",
+			"label": "Talents",
+			"system": "electricembrace",
+			"path": "packs/talents",
+			"type": "Item",
+			"private": false,
+			"flags": {}
+		},
+    {
+			"name": "weapons",
+			"label": "Weapons",
+			"system": "electricembrace",
+			"path": "packs/weapons",
+			"type": "Item",
+			"private": false,
+			"flags": {}
+		}
+  ],
   "packFolders": [],
   "socket": true,
   "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",

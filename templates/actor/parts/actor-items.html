@@ -27,7 +27,7 @@
 					</a>
 				</div>
 
-        <div class="flexrow flexlarge align-mid">
+        <div class="flexrow flexlarge flex-group-center">
 					<div class="text-center">
 						<a class="weapon-roll-damage">
 							<strong>
@@ -78,7 +78,7 @@
 		<div class="flexrow flexlarge item-name upperC">
 			{{localize 'ELECTRICEMBRACE.UI.Apparel'}}
 		</div>
-		<div class="flexrow flexlarge item-info">
+		<div class="flexrow flexlarge item-info flex-group-center">
 			<p>{{localize 'ELECTRICEMBRACE.UI.Equipped'}}</p>
 		</div>
 		<div class="item-controls">
@@ -101,7 +101,7 @@
 					</a>
 				</div>
 
-				<div class="flexrow align-mid item-equipped">
+				<div class="flexrow align-mid item-equipped flex-group-center">
 					<input type="checkbox" name="equipped" {{#ifCond item.system.equipped '==' true}}checked{{/ifCond}} >
 				</div>
 
@@ -154,7 +154,7 @@
 					</a>
 				</div>
 
-				<div class="flexrow align-mid item-quantity">
+				<div class="flex1 align-mid item-quantity flex-group-center">
 					<input type="number" name="quantity" value="{{item.system.quantity}}">
 				</div>
 

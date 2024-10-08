@@ -38,6 +38,11 @@
 
   "ELECTRICEMBRACE.UI.Damage": "Damage",
   "ELECTRICEMBRACE.UI.Type": "Type",
+  "ELECTRICEMBRACE.UI.Weapons": "Weapons",
+  "ELECTRICEMBRACE.UI.Apparel": "Apparel",
+  "ELECTRICEMBRACE.UI.Consumables": "Consumables",
+  "ELECTRICEMBRACE.UI.Equipped": "Equipped",
+  "ELECTRICEMBRACE.UI.Quantity": "Quantity",
 
   "ELECTRICEMBRACE.TEMPLATES.Weapon_Type": "Weapon Type",
   "ELECTRICEMBRACE.TEMPLATES.DAMAGE": "Damage",
@@ -98,6 +103,12 @@
 
   "ELECTRICEMBRACE.TEMPLATES.Locations": "Locations",
   "ELECTRICEMBRACE.TEMPLATES.Resistances": "Resistances",
+
+  "ELECTRICEMBRACE.TEMPLATES.Cybernetics_Location": "Location",
+  "ELECTRICEMBRACE.TEMPLATES.ramCost": "RAM Cost",
+  "ELECTRICEMBRACE.TEMPLATES.RAM": "RAM",
+  "ELECTRICEMBRACE.TEMPLATES.Capacity": "Capacity",
+  "ELECTRICEMBRACE.TEMPLATES.BattlehackDifficulty": "Difficulty",
 
   "ELECTRICEMBRACE.RESISTANCE.energy": "Energy",
   "ELECTRICEMBRACE.RESISTANCE.overload": "Overload",
