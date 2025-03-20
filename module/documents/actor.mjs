@@ -53,6 +53,7 @@ export class ElectricEmbraceActor extends Actor {
     this._calculateInitiative();
     this._calculateAttributeValues();
     this._calculateMeleeDamage();
+    //this._prepareSkills();
   }
 
   /**
@@ -96,6 +97,7 @@ export class ElectricEmbraceActor extends Actor {
     if (data.level) {
       data.lvl = data.level.value ?? 0;
     }
+
   }
 
   /**
@@ -163,6 +165,21 @@ export class ElectricEmbraceActor extends Actor {
       {
           this.system.attributes[attribute].value = this.system.attributes[attribute].base + this.system.attributes[attribute].bonus;
       }
-    } 
+    };
+
+
+  //Not used, plan is to use it auto create all skills in character sheet. 
+  async _prepareSkills(){
+    const alreadyHasSkills = this.collections.items.filter(i => i.type === "skill").length > 0;
+
+    if(alreadyHasSkills) {
+      let packSkills = await game.packs.get("electricembrace.skills").getDocuments()
+      
+      console.log(typeof this.collections.items)
+      //packSkills.forEach(s => {
+      //  this.collections.items.push(s.toObject());
+      //});
+    }
+  };
 
 }
