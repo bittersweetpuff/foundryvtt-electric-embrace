@@ -8,7 +8,7 @@ export class ElectricEmbraceActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["electricembrace", "sheet", "actor"],
       template: "systems/electricembrace/templates/actor/actor-sheet.html",
       width: 1050,

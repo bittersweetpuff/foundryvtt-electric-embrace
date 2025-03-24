@@ -1,4 +1,4 @@
-export class EffectDie extends DiceTerm {
+export class EffectDie extends foundry.dice.terms.DiceTerm {
   constructor(termData) {
     super(termData);
     this.faces = 6;
