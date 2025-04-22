@@ -25,13 +25,15 @@ export class EE2d20Roller {
 		let formula = `${dicenum}d20`;
 		let roll = new Roll(formula);
 
-        await roll.evaluate({ async: true });
+		await roll.evaluate();
+
+		this.showDiceSoNice(roll);
 
 		let hitLocation = undefined;
 		let hitLocationResult = undefined;
 
         if (rollLocation) {
-			let hitLocationRoll = await new Roll("1dh").evaluate({ async: true });
+			let hitLocationRoll = await new Roll("1dh").evaluate();
 			// try initiating Dice So Nice Roll
 			try {
 				game.dice3d.showForRoll(hitLocationRoll);
@@ -152,7 +154,7 @@ export class EE2d20Roller {
 		let formula = `${numOfDice}d20`;
 		let _roll = new Roll(formula);
 
-		await _roll.evaluate({ async: true });
+		await _roll.evaluate();
 
 		await EE2d20Roller.parseD20Roll({
 			rollname: `${rollname} re-roll`,
@@ -215,16 +217,10 @@ export class EE2d20Roller {
 			rollMode: game.settings.get("core", "rollMode"),
 			content: html,
 			flags: { eeroll: eeRoll },
-			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
 			roll: roll,
 		};
 
-		if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
-			chatData.whisper = ChatMessage.getWhisperRecipients("GM");
-		}
-		else if (chatData.rollMode === "selfroll") {
-			chatData.whisper = [game.user];
-		}
+		ChatMessage.applyRollMode(chatData, game.settings.get("core", "rollMode"));
 
 		await ChatMessage.create(chatData);
 	};
@@ -253,7 +249,8 @@ export class EE2d20Roller {
 	}={}) {
 		let formula = `${dicenum}dc`;
 		let roll = new Roll(formula);
-		await roll.evaluate({ async: true });
+		await roll.evaluate();
+		this.showDiceSoNice(roll);
 		await EE2d20Roller.parseD6Roll({
 			rollname: rollname,
 			roll: roll,
@@ -328,7 +325,7 @@ export class EE2d20Roller {
 		let formula = `${numOfDice}dc`;
 		let _roll = new Roll(formula);
 
-		await _roll.evaluate({ async: true });
+		await _roll.evaluate();
 
 		return await EE2d20Roller.parseD6Roll({
 			actor: actor,
@@ -344,7 +341,7 @@ export class EE2d20Roller {
 		let formula = `${dicenum}dc`;
 		let _roll = new Roll(formula);
 
-		await _roll.evaluate({ async: true });
+		await _roll.evaluate();
 
 		let newRollName = `${eeRoll.rollname} [+ ${dicenum} DC]`;
 		let oldDiceRolled = eeRoll.dicesRolled;
@@ -419,17 +416,60 @@ export class EE2d20Roller {
 			rollMode: game.settings.get("core", "rollMode"),
 			content: html,
 			flags: { eeRoll: eeRoll, weapon: weapon, actor: actor },
-			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
 			roll: roll,
 		};
 
-		if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
-			chatData.whisper = ChatMessage.getWhisperRecipients("GM");
-		}
-		else if (chatData.rollMode === "selfroll") {
-			chatData.whisper = [game.user];
-		}
 		await ChatMessage.create(chatData);
 	};
+
+	/**
+	 * Add support for the Dice So Nice module
+	 * @param {Object} roll
+	 * @param {String} rollMode
+	 */
+	static async showDiceSoNice(roll) {
+		if (game.modules.get("dice-so-nice")
+			&& game.modules.get("dice-so-nice").active
+		) {
+			const { whisper, blind } = EE2d20Roller.getRollModeSettings();
+
+			await game.dice3d.showForRoll(roll, game.user, true, whisper, blind);
+		}
+	}
+
+	static getRollModeSettings() {
+		const rollMode = game.settings.get("core", "rollMode");
+
+		let blind = false;
+		let whisper = null;
+
+		switch (rollMode) {
+			case "blindroll": {
+				blind = true;
+			}
+			case "gmroll": {
+				const gmList = game.users.filter(user => user.isGM);
+				const gmIDList = [];
+				gmList.forEach(gm => gmIDList.push(gm.id));
+				whisper = gmIDList;
+				break;
+			}
+			case "roll": {
+				const userList = game.users.filter(user => user.active);
+				const userIDList = [];
+				userList.forEach(user => userIDList.push(user.id));
+				whisper = userIDList;
+				break;
+			}
+			case "selfroll": {
+				whisper = [game.user.id];
+				break;
+			}
+			default: {
+				break;
+			}
+		}
+		return { whisper, blind };
+	}
 
 };
